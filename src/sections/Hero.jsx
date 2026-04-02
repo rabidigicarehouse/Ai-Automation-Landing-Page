@@ -1,0 +1,301 @@
+import React, { useEffect, useState, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { ArrowRight, Sparkles, Send, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
+import ReCAPTCHA from 'react-google-recaptcha';
+import Button from '../components/Button';
+import { handleScrollTo } from '../utils/scrollTo';
+
+const servicesOptions = [
+  "AI Copilots",
+  "Workflow Automation",
+  "LLM Agents",
+  "Revenue Automation",
+  "Other"
+];
+
+const budgetOptions = [
+  "<$3k",
+  "$3k - $10k",
+  "$10k - $30k",
+  "$30k+",
+  "Other"
+];
+
+const Hero = () => {
+  const recaptchaRef = useRef(null);
+  const [captchaValue, setCaptchaValue] = useState(null);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  
+  const [formData, setFormData] = useState({
+    user_name: "",
+    user_email: "",
+    service: "",
+    budget: "",
+    message: "",
+  });
+
+  const [isCustomService, setIsCustomService] = useState(false);
+  const [isCustomBudget, setIsCustomBudget] = useState(false);
+  const [status, setStatus] = useState("");
+  useEffect(() => {
+    const root = document.documentElement;
+    const syncTheme = () => setIsDarkMode(root.classList.contains('dark'));
+
+    syncTheme();
+
+    const observer = new MutationObserver(syncTheme);
+    observer.observe(root, { attributes: true, attributeFilter: ['class'] });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const handleSelectChange = (e, field) => {
+    const value = e.target.value;
+    if (value === "Other") {
+      if (field === "service") setIsCustomService(true);
+      if (field === "budget") setIsCustomBudget(true);
+      setFormData({ ...formData, [field]: "" });
+    } else {
+      setFormData({ ...formData, [field]: value });
+    }
+  };
+
+  const handleHeroSubmit = async (e) => {
+    e.preventDefault();
+    const token = recaptchaRef.current?.getValue();
+    
+    if (!token) {
+      alert("Please verify that you are human!");
+      return;
+    }
+
+    setStatus("SENDING");
+
+    try {
+      const payload = {
+        ...formData,
+        landing_page: 'ai-automation',
+        recaptcha_token: token
+      };
+
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (response.ok) {
+        setStatus("SUCCESS");
+        setFormData({ user_name: "", user_email: "", service: "", budget: "", message: "" });
+        setIsCustomService(false);
+        setIsCustomBudget(false);
+        recaptchaRef.current?.reset();
+        setCaptchaValue(null);
+      } else {
+        throw new Error('Failed to send');
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus("ERROR");
+      setTimeout(() => setStatus(""), 5000);
+    }
+  };
+
+  const inputClasses = "w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl px-4 py-3 dark:text-white text-slate-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-300 disabled:opacity-50";
+
+  return (
+    <section className="section !pt-[124px] sm:!pt-[145px] lg:!pt-[180px] pb-[90px] sm:pb-[120px] md:pb-[170px] flex items-center min-h-screen overflow-hidden" id="hero">
+      
+      {/* Decorative background grid and shapes */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:60px_60px] opacity-40 -z-10" />
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="hero-orb orb-1" />
+        <div className="hero-orb orb-2" />
+        <div className="hero-orb orb-3" />
+        <div className="hero-ai-ring ring-1" />
+        <div className="hero-ai-ring ring-2" />
+        <div className="hero-ai-beam" />
+      </div>
+
+      <div className="container mx-auto px-5 sm:px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-10 xl:gap-12 items-center z-10">
+        
+        {/* Left Side: Content */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="lg:col-span-7 flex flex-col items-start text-left"
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1, type: 'spring', damping: 20 }}
+            className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full glass-card border border-primary/20 mb-6 sm:mb-8"
+          >
+            <Sparkles className="text-secondary w-4 h-4" />
+            <span className="text-sm font-medium text-slate-800 dark:text-gray-300 font-heading tracking-widest uppercase">Open for AI System Deployments</span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="text-[2.95rem] sm:text-6xl md:text-8xl lg:text-[6.8rem] xl:text-8xl font-black font-heading tracking-tight mb-6 sm:mb-8 leading-[0.92] sm:leading-[0.9] uppercase max-w-full"
+          >
+            <span className="block text-slate-950 dark:text-white">Building</span>
+            <span className="block text-gradient break-words">Autonomous</span>
+            <span className="inline-block mt-2 max-w-full px-3.5 sm:px-6 py-2 bg-primary text-white rounded-2xl shadow-2xl shadow-primary/20 break-words">
+              Operations.
+            </span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15, duration: 0.5 }}
+            className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-gray-400 max-w-xl lg:max-w-[34rem] xl:max-w-xl mb-8 sm:mb-10 font-light leading-relaxed tracking-tight"
+          >
+            We design and deploy AI systems that answer, route, qualify, analyze, and execute work across your business without adding operational drag.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
+          >
+            <a href="#work" onClick={(e) => handleScrollTo(e, '#work')} className="w-full sm:w-auto block">
+              <Button variant="primary" className="w-full sm:w-auto text-sm font-black uppercase tracking-widest px-10 py-5 rounded-full">
+                Explore Systems <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </a>
+            <a href="#contact" onClick={(e) => handleScrollTo(e, '#contact')} className="w-full sm:w-auto block">
+              <Button variant="outline" className="w-full sm:w-auto text-sm font-black uppercase tracking-widest px-10 py-5 rounded-full border-primary text-primary">
+                Book Strategy
+              </Button>
+            </a>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.7 }}
+            className="flex flex-wrap items-center gap-x-8 gap-y-5 mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-black/5 dark:border-white/5 w-full max-w-xl"
+          >
+             <div>
+               <div className="text-3xl sm:text-4xl font-black font-heading text-slate-900 dark:text-white">180+</div>
+               <div className="text-[10px] font-black tracking-widest uppercase text-slate-500 dark:text-gray-500">Flows Automated</div>
+             </div>
+             <div>
+               <div className="text-3xl sm:text-4xl font-black font-heading text-slate-900 dark:text-white">72%</div>
+               <div className="text-[10px] font-black tracking-widest uppercase text-slate-500 dark:text-gray-500">Avg. Time Saved</div>
+             </div>
+             <div>
+               <div className="text-3xl sm:text-4xl font-black font-heading text-slate-900 dark:text-white">24/7</div>
+               <div className="text-[10px] font-black tracking-widest uppercase text-slate-500 dark:text-gray-500">Agent Coverage</div>
+             </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Right Side: Embedded Quote Form */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+          className="lg:col-span-5 w-full relative"
+        >
+          {/* Inner Glow Background */}
+          <div className="absolute inset-0 bg-primary/20 rounded-full blur-[100px] opacity-20 dark:opacity-40 -z-10" />
+          
+          <div className="glass-card rounded-[2rem] sm:rounded-[2.5rem] md:rounded-[3.5rem] border border-black/5 dark:border-white/5 relative overflow-visible bg-white dark:bg-dark-card/60 backdrop-blur-3xl shadow-[0_50px_100px_rgba(0,0,0,0.4)] p-5 sm:p-7 md:p-12">
+            {status === 'SUCCESS' ? (
+              <div className="flex min-h-[400px] flex-col items-center justify-center rounded-[1.75rem] border border-emerald-500/20 bg-emerald-500/10 p-8 text-center md:min-h-[470px]">
+                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/20">
+                  <CheckCircle2 className="text-white" size={32} />
+                </div>
+                <h3 className="mb-2 text-2xl font-bold text-slate-900 dark:text-white">Request Received!</h3>
+                <p className="font-light text-slate-600 dark:text-gray-400">
+                  We&apos;ll get back to you regarding your automation inquiry shortly.
+                </p>
+                <button onClick={() => setStatus('')} className="mt-8 rounded-full bg-transparent px-6 py-2 font-medium text-primary transition-all hover:bg-primary/10">
+                  Send Another
+                </button>
+              </div>
+            ) : (
+              <>
+                <div className="mb-6 sm:mb-8">
+                  <div className="inline-block px-3.5 sm:px-4 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest mb-3 sm:mb-4 border border-primary/20">Live Automation Intake</div>
+                  <h2 className="text-2xl sm:text-3xl font-black font-heading tracking-tighter text-slate-950 dark:text-white uppercase leading-none">Map Your Automation Stack</h2>
+                </div>
+
+                <form onSubmit={handleHeroSubmit} className="flex flex-col gap-5">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <input required type="text" name="user_name" placeholder="Full Name" value={formData.user_name} onChange={handleChange} className={inputClasses} disabled={status === 'SENDING'} />
+                    <input required type="email" name="user_email" placeholder="Email Address" value={formData.user_email} onChange={handleChange} className={inputClasses} disabled={status === 'SENDING'} />
+                  </div>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div className="relative group/field">
+                      {isCustomService ? (
+                        <input required type="text" name="service" placeholder="Type Service..." value={formData.service} onChange={handleChange} onBlur={(e) => { if (e.target.value.trim() === '') setIsCustomService(false); }} className={inputClasses} autoFocus />
+                      ) : (
+                        <select required name="service" value={formData.service} onChange={(e) => handleSelectChange(e, "service")} style={{ colorScheme: isDarkMode ? 'dark' : 'light' }} className={`${inputClasses} appearance-none cursor-pointer`}>
+                          <option value="" disabled>Project Type</option>
+                          {servicesOptions.map(opt => <option key={opt} value={opt} className="text-slate-900 bg-white dark:bg-[#0c0c1d] dark:text-white">{opt}</option>)}
+                        </select>
+                      )}
+                    </div>
+                    <div className="relative group/field">
+                      {isCustomBudget ? (
+                        <input required type="text" name="budget" placeholder="Type Budget..." value={formData.budget} onChange={handleChange} onBlur={(e) => { if (e.target.value.trim() === '') setIsCustomBudget(false); }} className={inputClasses} autoFocus />
+                      ) : (
+                        <select required name="budget" value={formData.budget} onChange={(e) => handleSelectChange(e, "budget")} style={{ colorScheme: isDarkMode ? 'dark' : 'light' }} className={`${inputClasses} appearance-none cursor-pointer`}>
+                          <option value="" disabled>Design Budget</option>
+                          {budgetOptions.map(opt => <option key={opt} value={opt} className="text-slate-900 bg-white dark:bg-[#0c0c1d] dark:text-white">{opt}</option>)}
+                        </select>
+                      )}
+                    </div>
+                  </div>
+
+                  <textarea required name="message" rows="3" placeholder="Tell us which workflow, team, or process you want to automate..." value={formData.message} onChange={handleChange} className={`${inputClasses} resize-none`} disabled={status === 'SENDING'}></textarea>
+                  
+                  <div className="w-full rounded-2xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-dark-bg/60 px-2.5 sm:px-4 py-3 sm:py-4">
+                    <div className="recaptcha-shell">
+                      <div className="recaptcha-frame">
+                        <ReCAPTCHA
+                          key={isDarkMode ? 'hero-captcha-dark' : 'hero-captcha-light'}
+                          ref={recaptchaRef}
+                          sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY || "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"} 
+                          theme={isDarkMode ? "dark" : "light"}
+                          onChange={(value) => setCaptchaValue(value)}
+                          onExpired={() => {
+                            setCaptchaValue(null);
+                            recaptchaRef.current?.reset();
+                          }}
+                          onErrored={() => {
+                            setCaptchaValue(null);
+                            recaptchaRef.current?.reset();
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <Button variant="primary" type="submit" className={`w-full justify-center py-5 rounded-full font-black uppercase tracking-widest text-xs shadow-2xl shadow-primary/20 ${(status === 'SENDING' || !captchaValue) ? 'opacity-70 cursor-not-allowed' : ''}`} disabled={status === 'SENDING' || !captchaValue}>
+                    {status === '' && <><Send className="w-4 h-4 mr-3" /> Start Automation Audit</>}
+                    {status === 'SENDING' && <><Loader2 className="w-4 h-4 mr-3 animate-spin" /> Verifying...</>}
+                    {status === 'ERROR' && <><AlertCircle className="w-4 h-4 mr-3" /> Failed</>}
+                  </Button>
+                </form>
+              </>
+            )}
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;

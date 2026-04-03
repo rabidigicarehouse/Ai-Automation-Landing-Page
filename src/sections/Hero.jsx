@@ -4,6 +4,7 @@ import { ArrowRight, Sparkles, Send, Loader2, CheckCircle2, AlertCircle } from '
 import ReCAPTCHA from 'react-google-recaptcha';
 import Button from '../components/Button';
 import { handleScrollTo } from '../utils/scrollTo';
+import heroVideo from '../assets/Animated_video/hero.mp4';
 
 const servicesOptions = [
   "AI Copilots",
@@ -23,6 +24,7 @@ const budgetOptions = [
 
 const Hero = () => {
   const recaptchaRef = useRef(null);
+  const heroVideoRef = useRef(null);
   const [captchaValue, setCaptchaValue] = useState(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
   
@@ -47,6 +49,25 @@ const Hero = () => {
     observer.observe(root, { attributes: true, attributeFilter: ['class'] });
 
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const video = heroVideoRef.current;
+    if (!video) return;
+
+    const syncPlayback = () => {
+      video.defaultPlaybackRate = 2;
+      video.playbackRate = 2;
+      void video.play().catch(() => {});
+    };
+
+    video.addEventListener('loadedmetadata', syncPlayback);
+    video.addEventListener('canplay', syncPlayback);
+
+    return () => {
+      video.removeEventListener('loadedmetadata', syncPlayback);
+      video.removeEventListener('canplay', syncPlayback);
+    };
   }, []);
 
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -103,12 +124,26 @@ const Hero = () => {
     }
   };
 
-  const inputClasses = "w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl px-4 py-3 dark:text-white text-slate-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-300 disabled:opacity-50";
+  const inputClasses = "w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/35 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-300 disabled:opacity-50";
 
   return (
     <section className="section !pt-[124px] sm:!pt-[145px] lg:!pt-[180px] pb-[90px] sm:pb-[120px] md:pb-[170px] flex items-center min-h-screen overflow-hidden" id="hero">
       
       {/* Decorative background grid and shapes */}
+      <div className="absolute inset-0 -z-20 overflow-hidden">
+        <video
+          ref={heroVideoRef}
+          className="h-full w-full object-cover"
+          src={heroVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.58)_0%,rgba(2,6,23,0.42)_28%,rgba(2,6,23,0.64)_100%)] dark:bg-[linear-gradient(180deg,rgba(2,6,23,0.64)_0%,rgba(2,6,23,0.46)_30%,rgba(2,6,23,0.7)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(41,211,255,0.12),transparent_38%),radial-gradient(circle_at_bottom_right,rgba(109,124,255,0.14),transparent_34%)]" />
+      </div>
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:60px_60px] opacity-40 -z-10" />
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="hero-orb orb-1" />
@@ -132,10 +167,10 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1, type: 'spring', damping: 20 }}
-            className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full glass-card border border-primary/20 mb-6 sm:mb-8"
+            className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full border border-primary/20 bg-[#071425]/88 backdrop-blur-xl mb-6 sm:mb-8 shadow-[0_18px_45px_rgba(0,0,0,0.2)]"
           >
             <Sparkles className="text-secondary w-4 h-4" />
-            <span className="text-sm font-medium text-slate-800 dark:text-gray-300 font-heading tracking-widest uppercase">Open for AI System Deployments</span>
+            <span className="text-sm font-medium text-white/90 font-heading tracking-widest uppercase">Open for AI System Deployments</span>
           </motion.div>
 
           <motion.h1
@@ -144,7 +179,7 @@ const Hero = () => {
             transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="text-[2.95rem] sm:text-6xl md:text-8xl lg:text-[6.8rem] xl:text-8xl font-black font-heading tracking-tight mb-6 sm:mb-8 leading-[0.92] sm:leading-[0.9] uppercase max-w-full"
           >
-            <span className="block text-slate-950 dark:text-white">Building</span>
+            <span className="block text-white">Building</span>
             <span className="block text-gradient break-words">Autonomous</span>
             <span className="inline-block mt-2 max-w-full px-3.5 sm:px-6 py-2 bg-primary text-white rounded-2xl shadow-2xl shadow-primary/20 break-words">
               Operations.
@@ -155,7 +190,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15, duration: 0.5 }}
-            className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-gray-400 max-w-xl lg:max-w-[34rem] xl:max-w-xl mb-8 sm:mb-10 font-light leading-relaxed tracking-tight"
+            className="text-base sm:text-lg md:text-xl text-white max-w-xl lg:max-w-[34rem] xl:max-w-xl mb-8 sm:mb-10 font-light leading-relaxed tracking-tight"
           >
             We design and deploy AI systems that answer, route, qualify, analyze, and execute work across your business without adding operational drag.
           </motion.p>
@@ -172,7 +207,7 @@ const Hero = () => {
               </Button>
             </a>
             <a href="#contact" onClick={(e) => handleScrollTo(e, '#contact')} className="w-full sm:w-auto block">
-              <Button variant="outline" className="w-full sm:w-auto text-sm font-black uppercase tracking-widest px-10 py-5 rounded-full border-primary text-primary">
+              <Button variant="outline" className="w-full sm:w-auto text-sm font-black uppercase tracking-widest px-10 py-5 rounded-full border-white/20 bg-white/[0.02] text-white hover:border-primary hover:text-primary">
                 Book Strategy
               </Button>
             </a>
@@ -182,19 +217,19 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
-            className="flex flex-wrap items-center gap-x-8 gap-y-5 mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-black/5 dark:border-white/5 w-full max-w-xl"
+            className="flex flex-wrap items-center gap-x-8 gap-y-5 mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-white/10 w-full max-w-xl"
           >
              <div>
-               <div className="text-3xl sm:text-4xl font-black font-heading text-slate-900 dark:text-white">180+</div>
-               <div className="text-[10px] font-black tracking-widest uppercase text-slate-500 dark:text-gray-500">Flows Automated</div>
+               <div className="text-3xl sm:text-4xl font-black font-heading text-white">180+</div>
+               <div className="text-[10px] font-black tracking-widest uppercase text-white/50">Flows Automated</div>
              </div>
              <div>
-               <div className="text-3xl sm:text-4xl font-black font-heading text-slate-900 dark:text-white">72%</div>
-               <div className="text-[10px] font-black tracking-widest uppercase text-slate-500 dark:text-gray-500">Avg. Time Saved</div>
+               <div className="text-3xl sm:text-4xl font-black font-heading text-white">72%</div>
+               <div className="text-[10px] font-black tracking-widest uppercase text-white/50">Avg. Time Saved</div>
              </div>
              <div>
-               <div className="text-3xl sm:text-4xl font-black font-heading text-slate-900 dark:text-white">24/7</div>
-               <div className="text-[10px] font-black tracking-widest uppercase text-slate-500 dark:text-gray-500">Agent Coverage</div>
+               <div className="text-3xl sm:text-4xl font-black font-heading text-white">24/7</div>
+               <div className="text-[10px] font-black tracking-widest uppercase text-white/50">Agent Coverage</div>
              </div>
           </motion.div>
         </motion.div>
@@ -209,14 +244,14 @@ const Hero = () => {
           {/* Inner Glow Background */}
           <div className="absolute inset-0 bg-primary/20 rounded-full blur-[100px] opacity-20 dark:opacity-40 -z-10" />
           
-          <div className="glass-card rounded-[2rem] sm:rounded-[2.5rem] md:rounded-[3.5rem] border border-black/5 dark:border-white/5 relative overflow-visible bg-white dark:bg-dark-card/60 backdrop-blur-3xl shadow-[0_50px_100px_rgba(0,0,0,0.4)] p-5 sm:p-7 md:p-12">
+          <div className="rounded-[2rem] sm:rounded-[2.5rem] md:rounded-[3.5rem] border border-primary/25 relative overflow-visible bg-[#0d1628]/90 backdrop-blur-3xl shadow-[0_50px_100px_rgba(0,0,0,0.45)] p-5 sm:p-7 md:p-12">
             {status === 'SUCCESS' ? (
               <div className="flex min-h-[400px] flex-col items-center justify-center rounded-[1.75rem] border border-emerald-500/20 bg-emerald-500/10 p-8 text-center md:min-h-[470px]">
                 <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/20">
                   <CheckCircle2 className="text-white" size={32} />
                 </div>
-                <h3 className="mb-2 text-2xl font-bold text-slate-900 dark:text-white">Request Received!</h3>
-                <p className="font-light text-slate-600 dark:text-gray-400">
+                <h3 className="mb-2 text-2xl font-bold text-white">Request Received!</h3>
+                <p className="font-light text-white/72">
                   We&apos;ll get back to you regarding your automation inquiry shortly.
                 </p>
                 <button onClick={() => setStatus('')} className="mt-8 rounded-full bg-transparent px-6 py-2 font-medium text-primary transition-all hover:bg-primary/10">
@@ -227,7 +262,7 @@ const Hero = () => {
               <>
                 <div className="mb-6 sm:mb-8">
                   <div className="inline-block px-3.5 sm:px-4 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest mb-3 sm:mb-4 border border-primary/20">Live Automation Intake</div>
-                  <h2 className="text-2xl sm:text-3xl font-black font-heading tracking-tighter text-slate-950 dark:text-white uppercase leading-none">Map Your Automation Stack</h2>
+                  <h2 className="text-2xl sm:text-3xl font-black font-heading tracking-tighter text-white uppercase leading-none">Map Your Automation Stack</h2>
                 </div>
 
                 <form onSubmit={handleHeroSubmit} className="flex flex-col gap-5">
@@ -243,7 +278,7 @@ const Hero = () => {
                       ) : (
                         <select required name="service" value={formData.service} onChange={(e) => handleSelectChange(e, "service")} style={{ colorScheme: isDarkMode ? 'dark' : 'light' }} className={`${inputClasses} appearance-none cursor-pointer`}>
                           <option value="" disabled>Project Type</option>
-                          {servicesOptions.map(opt => <option key={opt} value={opt} className="text-slate-900 bg-white dark:bg-[#0c0c1d] dark:text-white">{opt}</option>)}
+                          {servicesOptions.map(opt => <option key={opt} value={opt} className="bg-[#0c1220] text-white">{opt}</option>)}
                         </select>
                       )}
                     </div>
@@ -253,7 +288,7 @@ const Hero = () => {
                       ) : (
                         <select required name="budget" value={formData.budget} onChange={(e) => handleSelectChange(e, "budget")} style={{ colorScheme: isDarkMode ? 'dark' : 'light' }} className={`${inputClasses} appearance-none cursor-pointer`}>
                           <option value="" disabled>Design Budget</option>
-                          {budgetOptions.map(opt => <option key={opt} value={opt} className="text-slate-900 bg-white dark:bg-[#0c0c1d] dark:text-white">{opt}</option>)}
+                          {budgetOptions.map(opt => <option key={opt} value={opt} className="bg-[#0c1220] text-white">{opt}</option>)}
                         </select>
                       )}
                     </div>
@@ -261,14 +296,14 @@ const Hero = () => {
 
                   <textarea required name="message" rows="3" placeholder="Tell us which workflow, team, or process you want to automate..." value={formData.message} onChange={handleChange} className={`${inputClasses} resize-none`} disabled={status === 'SENDING'}></textarea>
                   
-                  <div className="w-full rounded-2xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-dark-bg/60 px-2.5 sm:px-4 py-3 sm:py-4">
+                  <div className="w-full rounded-2xl border border-white/10 bg-[#091120]/90 px-2.5 sm:px-4 py-3 sm:py-4">
                     <div className="recaptcha-shell">
                       <div className="recaptcha-frame">
                         <ReCAPTCHA
-                          key={isDarkMode ? 'hero-captcha-dark' : 'hero-captcha-light'}
+                          key="hero-captcha-dark"
                           ref={recaptchaRef}
                           sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY || "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"} 
-                          theme={isDarkMode ? "dark" : "light"}
+                          theme="dark"
                           onChange={(value) => setCaptchaValue(value)}
                           onExpired={() => {
                             setCaptchaValue(null);

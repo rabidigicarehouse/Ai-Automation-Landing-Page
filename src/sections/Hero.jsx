@@ -6,6 +6,15 @@ import Button from '../components/Button';
 import { handleScrollTo } from '../utils/scrollTo';
 import heroVideo from '../assets/Animated_video/hero.mp4';
 
+const sanitizePhone = (value) => {
+  const cleaned = value.replace(/[^\d+]/g, '');
+  if (!cleaned) return '';
+  if (cleaned.startsWith('+')) {
+    return `+${cleaned.slice(1).replace(/\+/g, '')}`;
+  }
+  return cleaned.replace(/\+/g, '');
+};
+
 const servicesOptions = [
   "AI Copilots",
   "Workflow Automation",
@@ -31,12 +40,12 @@ const Hero = () => {
   const [formData, setFormData] = useState({
     user_name: "",
     user_email: "",
+    user_phone: "",
     service: "",
     budget: "",
     message: "",
   });
 
-  const [isCustomService, setIsCustomService] = useState(false);
   const [isCustomBudget, setIsCustomBudget] = useState(false);
   const [status, setStatus] = useState("");
   useEffect(() => {
@@ -84,12 +93,17 @@ const Hero = () => {
     };
   }, []);
 
-  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: name === 'user_phone' ? sanitizePhone(value) : value,
+    });
+  };
 
   const handleSelectChange = (e, field) => {
     const value = e.target.value;
     if (value === "Other") {
-      if (field === "service") setIsCustomService(true);
       if (field === "budget") setIsCustomBudget(true);
       setFormData({ ...formData, [field]: "" });
     } else {
@@ -123,8 +137,7 @@ const Hero = () => {
 
       if (response.ok) {
         setStatus("SUCCESS");
-        setFormData({ user_name: "", user_email: "", service: "", budget: "", message: "" });
-        setIsCustomService(false);
+        setFormData({ user_name: "", user_email: "", user_phone: "", service: "", budget: "", message: "" });
         setIsCustomBudget(false);
         recaptchaRef.current?.reset();
         setCaptchaValue(null);
@@ -138,7 +151,7 @@ const Hero = () => {
     }
   };
 
-  const inputClasses = "w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/35 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-300 disabled:opacity-50";
+  const inputClasses = "w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3.5 text-sm text-white placeholder:text-white/35 shadow-sm transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-50 sm:px-5 sm:py-4";
 
   return (
     <section className="section !pt-[124px] sm:!pt-[145px] lg:!pt-[180px] pb-[90px] sm:pb-[120px] md:pb-[170px] flex items-center min-h-screen overflow-hidden" id="hero">
@@ -183,21 +196,21 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1, type: 'spring', damping: 20 }}
-            className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full border border-primary/20 bg-[#071425]/88 backdrop-blur-xl mb-6 sm:mb-8 shadow-[0_18px_45px_rgba(0,0,0,0.2)]"
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-[#071425]/88 px-5 py-3 shadow-[0_18px_45px_rgba(0,0,0,0.2)] backdrop-blur-xl sm:mb-8"
           >
             <Sparkles className="text-secondary w-4 h-4" />
-            <span className="text-sm font-medium text-white/90 font-heading tracking-widest uppercase">Open for AI System Deployments</span>
+            <span className="text-[11px] font-black uppercase tracking-[0.22em] text-white/90">Open for AI System Deployments</span>
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[2.95rem] sm:text-6xl md:text-8xl lg:text-[6.8rem] xl:text-8xl font-black font-heading tracking-tight mb-6 sm:mb-8 leading-[0.92] sm:leading-[0.9] uppercase max-w-full"
+            className="mb-6 max-w-full text-[2.95rem] font-black uppercase leading-[0.92] tracking-tight sm:mb-8 sm:text-6xl sm:leading-[0.9] md:text-8xl lg:text-[6.8rem] xl:text-8xl"
           >
             <span className="block text-white">Building</span>
             <span className="block text-gradient break-words">Autonomous</span>
-            <span className="inline-block mt-2 max-w-full px-3.5 sm:px-6 py-2 bg-primary text-white rounded-2xl shadow-2xl shadow-primary/20 break-words">
+            <span className="mt-2 inline-block max-w-full rounded-2xl bg-primary px-3.5 py-2 text-white shadow-2xl shadow-primary/20 break-words sm:px-6">
               Operations.
             </span>
           </motion.h1>
@@ -206,9 +219,9 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15, duration: 0.5 }}
-            className="text-base sm:text-lg md:text-xl text-white max-w-xl lg:max-w-[34rem] xl:max-w-xl mb-8 sm:mb-10 font-light leading-relaxed tracking-tight"
+            className="mb-8 max-w-xl text-base font-light leading-relaxed tracking-tight text-white sm:mb-10 sm:text-lg md:text-xl lg:max-w-[34rem] xl:max-w-xl"
           >
-            We design and deploy AI systems that answer, route, qualify, analyze, and execute work across your business without adding operational drag.
+            We build AI systems that automate, analyze, and execute work across your business without adding complexity.
           </motion.p>
 
           <motion.div
@@ -233,19 +246,19 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
-            className="flex flex-wrap items-center gap-x-8 gap-y-5 mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-white/10 w-full max-w-xl"
+            className="mt-12 grid w-full max-w-xl grid-cols-3 gap-x-4 gap-y-5 border-t border-white/10 pt-8 sm:mt-16 sm:gap-x-8 sm:pt-10"
           >
-             <div>
-               <div className="text-3xl sm:text-4xl font-black font-heading text-white">180+</div>
-               <div className="text-[10px] font-black tracking-widest uppercase text-white/50">Flows Automated</div>
+             <div className="min-w-0">
+               <div className="font-heading text-[2rem] font-black leading-none text-white sm:text-4xl">180+</div>
+               <div className="mt-1 text-[9px] font-black uppercase tracking-[0.18em] text-white/50 sm:text-[10px] sm:tracking-widest">Flows Automated</div>
              </div>
-             <div>
-               <div className="text-3xl sm:text-4xl font-black font-heading text-white">72%</div>
-               <div className="text-[10px] font-black tracking-widest uppercase text-white/50">Avg. Time Saved</div>
+             <div className="min-w-0">
+               <div className="font-heading text-[2rem] font-black leading-none text-white sm:text-4xl">72%</div>
+               <div className="mt-1 text-[9px] font-black uppercase tracking-[0.18em] text-white/50 sm:text-[10px] sm:tracking-widest">Avg. Time Saved</div>
              </div>
-             <div>
-               <div className="text-3xl sm:text-4xl font-black font-heading text-white">24/7</div>
-               <div className="text-[10px] font-black tracking-widest uppercase text-white/50">Agent Coverage</div>
+             <div className="min-w-0">
+               <div className="font-heading text-[2rem] font-black leading-none text-white sm:text-4xl">24/7</div>
+               <div className="mt-1 text-[9px] font-black uppercase tracking-[0.18em] text-white/50 sm:text-[10px] sm:tracking-widest">Agent Coverage</div>
              </div>
           </motion.div>
         </motion.div>
@@ -288,16 +301,7 @@ const Hero = () => {
                   </div>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div className="relative group/field">
-                      {isCustomService ? (
-                        <input required type="text" name="service" placeholder="Type Service..." value={formData.service} onChange={handleChange} onBlur={(e) => { if (e.target.value.trim() === '') setIsCustomService(false); }} className={inputClasses} autoFocus />
-                      ) : (
-                        <select required name="service" value={formData.service} onChange={(e) => handleSelectChange(e, "service")} style={{ colorScheme: isDarkMode ? 'dark' : 'light' }} className={`${inputClasses} appearance-none cursor-pointer`}>
-                          <option value="" disabled>Project Type</option>
-                          {servicesOptions.map(opt => <option key={opt} value={opt} className="bg-[#0c1220] text-white">{opt}</option>)}
-                        </select>
-                      )}
-                    </div>
+                    <input required type="tel" inputMode="tel" name="user_phone" placeholder="Phone Number" value={formData.user_phone} onChange={handleChange} className={inputClasses} disabled={status === 'SENDING'} />
                     <div className="relative group/field">
                       {isCustomBudget ? (
                         <input required type="text" name="budget" placeholder="Type Budget..." value={formData.budget} onChange={handleChange} onBlur={(e) => { if (e.target.value.trim() === '') setIsCustomBudget(false); }} className={inputClasses} autoFocus />

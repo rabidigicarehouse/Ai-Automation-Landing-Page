@@ -19,6 +19,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [creativeOpen, setCreativeOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
   const creativeRef = useRef(null);
   const designPageUrl = import.meta.env.VITE_DESIGN_PAGE_URL || 'http://localhost:5173';
   const developmentPageUrl = import.meta.env.VITE_DEVELOPMENT_PAGE_URL || 'http://localhost:5175';
@@ -32,6 +33,18 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
+    const root = document.documentElement;
+    const syncTheme = () => setIsDarkMode(root.classList.contains('dark'));
+
+    syncTheme();
+
+    const observer = new MutationObserver(syncTheme);
+    observer.observe(root, { attributes: true, attributeFilter: ['class'] });
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     const handleClickOutside = (event) => {
       if (creativeRef.current && !creativeRef.current.contains(event.target)) {
         setCreativeOpen(false);
@@ -41,6 +54,15 @@ const Navbar = () => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  const headerOnHero = !isScrolled;
+  const desktopNavTextClass = headerOnHero || isDarkMode ? 'text-white' : 'text-slate-700';
+  const switchButtonClass = headerOnHero
+    ? 'border-primary/15 bg-white/[0.04] text-white'
+    : isDarkMode
+      ? 'border-primary/15 bg-white/[0.04] text-white'
+      : 'border-primary/15 bg-white/92 text-slate-800';
+  const switchButtonTitleClass = headerOnHero || isDarkMode ? 'text-white' : 'text-slate-800';
 
   return (
     <header
@@ -65,7 +87,7 @@ const Navbar = () => {
               key={link.name}
               href={link.href}
               onClick={(e) => handleScrollTo(e, link.href)}
-              className={`group relative overflow-hidden text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-500 hover:text-primary dark:hover:text-primary ${isScrolled ? 'text-slate-600 dark:text-gray-400' : 'text-white dark:text-white'}`}
+              className={`group relative overflow-hidden text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-500 hover:text-primary dark:hover:text-primary ${desktopNavTextClass}`}
             >
               <span className="block group-hover:-translate-y-full transition-transform duration-500">{link.name}</span>
               <span className="absolute top-full left-0 block text-primary transition-transform duration-500 group-hover:-translate-y-full">{link.name}</span>
@@ -82,11 +104,7 @@ const Navbar = () => {
                whileHover={{ y: -2 }}
                whileTap={{ scale: 0.98 }}
                onClick={() => setCreativeOpen((prev) => !prev)}
-               className={`group relative inline-flex items-center gap-3 overflow-hidden rounded-full border px-5 py-3 text-[10px] font-black uppercase tracking-[0.22em] shadow-[0_18px_50px_rgba(15,23,42,0.16)] transition-all duration-500 backdrop-blur-2xl hover:border-primary/35 hover:shadow-[0_0_30px_rgba(41,211,255,0.22)] ${
-                 isScrolled
-                   ? 'border-primary/15 bg-white/85 text-slate-800 dark:bg-white/[0.04] dark:text-white'
-                   : 'border-primary/15 bg-white/[0.04] text-white'
-               }`}
+               className={`group relative inline-flex items-center gap-3 overflow-hidden rounded-full border px-5 py-3 text-[10px] font-black uppercase tracking-[0.22em] shadow-[0_18px_50px_rgba(15,23,42,0.16)] transition-all duration-500 backdrop-blur-2xl hover:border-primary/35 hover:shadow-[0_0_30px_rgba(41,211,255,0.22)] ${switchButtonClass}`}
              >
                <span className="absolute inset-0 bg-[linear-gradient(115deg,rgba(41,211,255,0.12),rgba(109,124,255,0.14),rgba(139,255,176,0.12))] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                <span className="relative flex h-9 w-9 items-center justify-center rounded-full border border-primary/20 bg-primary/10 text-primary transition-all duration-500 group-hover:scale-110 group-hover:shadow-[0_0_24px_rgba(41,211,255,0.28)]">
@@ -94,7 +112,7 @@ const Navbar = () => {
                </span>
                <span className="relative flex flex-col items-start leading-none">
                  <span className="text-[9px] font-black tracking-[0.28em] text-primary/80">Switch To</span>
-                 <span className={`mt-1 text-[10px] font-black tracking-[0.22em] ${isScrolled ? 'text-slate-800 dark:text-white' : 'text-white'}`}>The Design Hands</span>
+                 <span className={`mt-1 text-[10px] font-black tracking-[0.22em] ${switchButtonTitleClass}`}>The Design Hands</span>
                </span>
                <ArrowUpRight className={`relative h-4 w-4 text-primary transition-transform duration-500 ${creativeOpen ? 'rotate-45' : 'group-hover:translate-x-0.5 group-hover:-translate-y-0.5'}`} />
              </motion.button>
@@ -178,16 +196,16 @@ const Navbar = () => {
             className="fixed inset-0 top-0 left-0 z-[100] h-screen w-full bg-white p-4 dark:bg-dark-bg lg:hidden"
           >
             <div className="mx-auto flex h-full w-full max-w-sm flex-col rounded-[2rem] border border-black/5 bg-white px-6 pb-8 pt-6 shadow-[0_30px_80px_rgba(15,23,42,0.10)] dark:border-white/10 dark:bg-[#07101d]">
-            <div className="mb-5 flex items-center gap-2">
-              <a href={designPageUrl} className="group inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-black/5 bg-slate-50/95 px-3 py-2.5 text-slate-900 shadow-lg transition-all duration-500 hover:border-primary/20 hover:text-primary dark:border-white/10 dark:bg-white/[0.04] dark:text-white">
+            <div className="mb-6 flex items-center gap-2">
+              <a href={designPageUrl} className="group inline-flex min-w-0 flex-1 items-center justify-center gap-2 rounded-full border border-black/5 bg-slate-50/95 px-3 py-2.5 text-slate-900 shadow-lg transition-all duration-500 hover:border-primary/20 hover:text-primary dark:border-white/10 dark:bg-white/[0.04] dark:text-white">
                 <Palette className="h-4 w-4 text-primary shrink-0" />
-                <span className="text-[9px] font-black uppercase tracking-[0.16em]">The Design Hands</span>
+                <span className="truncate text-[8px] font-black uppercase tracking-[0.14em]">The Design Hands</span>
               </a>
-              <a href={developmentPageUrl} className="group inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-black/5 bg-slate-50/95 px-3 py-2.5 text-slate-900 shadow-lg transition-all duration-500 hover:border-secondary/20 hover:text-secondary dark:border-white/10 dark:bg-white/[0.04] dark:text-white">
+              <a href={developmentPageUrl} className="group inline-flex min-w-0 flex-1 items-center justify-center gap-2 rounded-full border border-black/5 bg-slate-50/95 px-3 py-2.5 text-slate-900 shadow-lg transition-all duration-500 hover:border-secondary/20 hover:text-secondary dark:border-white/10 dark:bg-white/[0.04] dark:text-white">
                 <Code2 className="h-4 w-4 text-secondary shrink-0" />
-                <span className="text-[9px] font-black uppercase tracking-[0.16em]">The Tech Synidicate</span>
+                <span className="truncate text-[8px] font-black uppercase tracking-[0.14em]">The Tech Synidicate</span>
               </a>
-              <button onClick={() => setMobileMenuOpen(false)} className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-black/5 bg-slate-100/90 text-slate-700 shadow-lg transition-all hover:text-primary dark:border-white/10 dark:bg-white/5 dark:text-white"><X size={22} /></button>
+              <button onClick={() => setMobileMenuOpen(false)} className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-black/5 bg-slate-100/90 text-slate-700 shadow-lg transition-all hover:text-primary dark:border-white/10 dark:bg-white/5 dark:text-white"><X size={19} /></button>
             </div>
 
             <div className="mb-8 flex items-center gap-3">

@@ -2,6 +2,15 @@ import React, { useEffect, useState, useRef } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { Loader2, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 
+const sanitizePhone = (value) => {
+  const cleaned = value.replace(/[^\d+]/g, '');
+  if (!cleaned) return '';
+  if (cleaned.startsWith('+')) {
+    return `+${cleaned.slice(1).replace(/\+/g, '')}`;
+  }
+  return cleaned.replace(/\+/g, '');
+};
+
 const servicesOptions = [
   'AI Copilots',
   'Workflow Automation',
@@ -30,6 +39,7 @@ export default function ServiceForm({ initialService, isMini = false }) {
   const [formData, setFormData] = useState({
     user_name: '',
     user_email: '',
+    user_phone: '',
     service: initialService || '',
     otherService: '',
     budget: '',
@@ -51,7 +61,13 @@ export default function ServiceForm({ initialService, isMini = false }) {
     return () => observer.disconnect();
   }, []);
 
-  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: name === 'user_phone' ? sanitizePhone(value) : value,
+    });
+  };
 
   const isOtherService = formData.service === 'Other';
   const isOtherBudget = formData.budget === 'Other';
@@ -87,6 +103,7 @@ export default function ServiceForm({ initialService, isMini = false }) {
         setFormData({
           user_name: '',
           user_email: '',
+          user_phone: '',
           service: initialService || '',
           otherService: '',
           budget: '',
@@ -140,14 +157,7 @@ export default function ServiceForm({ initialService, isMini = false }) {
 
         <div className={`grid grid-cols-1 md:grid-cols-2 ${isMini ? 'gap-3' : 'gap-3 sm:gap-3.5'}`}>
           <div>
-            {!isOtherService ? (
-              <select required name="service" value={formData.service} onChange={handleChange} style={{ colorScheme: isDarkMode ? 'dark' : 'light' }} className={`w-full appearance-none cursor-pointer rounded-2xl border border-slate-200 bg-white ${fieldBase} font-light text-slate-900 shadow-sm outline-none transition-all focus:border-primary/50 dark:border-white/10 dark:bg-dark-bg/50 dark:text-white`}>
-                <option value="" disabled>Inquiry Type</option>
-                {servicesOptions.map((opt) => <option key={opt} value={opt} className="bg-white text-slate-900 dark:bg-[#0c0c1d] dark:text-white">{opt}</option>)}
-              </select>
-            ) : (
-              <input required type="text" autoFocus name="otherService" placeholder="Detail Service..." value={formData.otherService} onChange={handleChange} onBlur={(e) => { if (e.target.value.trim() === '') setFormData((p) => ({ ...p, service: '', otherService: '' })); }} className={`w-full rounded-2xl border border-slate-200 bg-white text-slate-900 ${fieldBase} font-light shadow-sm outline-none transition-all focus:border-primary/50 dark:border-white/10 dark:bg-dark-bg/50 dark:text-white`} />
-            )}
+            <input required type="tel" inputMode="tel" name="user_phone" placeholder="Phone Number" value={formData.user_phone} onChange={handleChange} className={`w-full rounded-2xl border border-slate-200 bg-white text-slate-900 ${fieldBase} font-light shadow-sm outline-none transition-all focus:border-primary/50 dark:border-white/10 dark:bg-dark-bg/50 dark:text-white`} />
           </div>
           <div>
             {!isOtherBudget ? (

@@ -1,6 +1,5 @@
-import React, { useLayoutEffect } from 'react';
+import React, { Suspense, lazy, useEffect, useLayoutEffect, useState } from 'react';
 import SmoothScroll from './components/SmoothScroll';
-import CustomCursor from './components/CustomCursor';
 import Navbar from './components/Navbar';
 import Hero from './sections/Hero';
 import Services from './sections/Services';
@@ -15,9 +14,25 @@ import Footer from './sections/Footer';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
+const CustomCursor = lazy(() => import('./components/CustomCursor'));
+
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
+  const [showCursor, setShowCursor] = useState(false);
+
+  useEffect(() => {
+    const activateCursor = () => setShowCursor(window.matchMedia('(pointer: fine)').matches);
+
+    if ('requestIdleCallback' in window) {
+      const idleId = window.requestIdleCallback(activateCursor, { timeout: 1200 });
+      return () => window.cancelIdleCallback(idleId);
+    }
+
+    const timeoutId = window.setTimeout(activateCursor, 600);
+    return () => window.clearTimeout(timeoutId);
+  }, []);
+
   useLayoutEffect(() => {
     let cleanupPanelStarts = null;
     let ctx = gsap.context(() => {
@@ -80,7 +95,7 @@ function App() {
 
   return (
     <SmoothScroll>
-    <CustomCursor />
+    <Suspense fallback={null}>{showCursor ? <CustomCursor /> : null}</Suspense>
     <div className="relative w-full dark:bg-dark-bg bg-slate-50 min-h-screen dark:text-[#eef4ff] text-slate-900 transition-colors duration-300">
       {/* Background glowing orbs */}
       <div className="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">

@@ -61,12 +61,26 @@ const Hero = () => {
       void video.play().catch(() => {});
     };
 
+    const resumePlayback = () => {
+      if (document.visibilityState === 'visible') {
+        syncPlayback();
+      }
+    };
+
     video.addEventListener('loadedmetadata', syncPlayback);
     video.addEventListener('canplay', syncPlayback);
+    video.addEventListener('playing', syncPlayback);
+    video.addEventListener('waiting', syncPlayback);
+    video.addEventListener('stalled', syncPlayback);
+    document.addEventListener('visibilitychange', resumePlayback);
 
     return () => {
       video.removeEventListener('loadedmetadata', syncPlayback);
       video.removeEventListener('canplay', syncPlayback);
+      video.removeEventListener('playing', syncPlayback);
+      video.removeEventListener('waiting', syncPlayback);
+      video.removeEventListener('stalled', syncPlayback);
+      document.removeEventListener('visibilitychange', resumePlayback);
     };
   }, []);
 
@@ -139,7 +153,9 @@ const Hero = () => {
           loop
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
+          disablePictureInPicture
+          disableRemotePlayback
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.58)_0%,rgba(2,6,23,0.42)_28%,rgba(2,6,23,0.64)_100%)] dark:bg-[linear-gradient(180deg,rgba(2,6,23,0.64)_0%,rgba(2,6,23,0.46)_30%,rgba(2,6,23,0.7)_100%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(41,211,255,0.12),transparent_38%),radial-gradient(circle_at_bottom_right,rgba(109,124,255,0.14),transparent_34%)]" />

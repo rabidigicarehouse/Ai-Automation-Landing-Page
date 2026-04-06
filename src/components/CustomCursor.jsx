@@ -23,13 +23,13 @@ const CustomCursor = () => {
       setIsVisible(true);
 
       const target = e.target;
-      const videoZone = target?.closest?.('.cursor-video, video');
       const buttonZone = target?.closest?.('a, button, input, textarea, select, [role="button"], .cursor-pointer');
+      const videoZone = target?.closest?.('.cursor-video');
 
-      if (videoZone) {
-        setHoverType('video');
-      } else if (buttonZone) {
+      if (buttonZone) {
         setHoverType('button');
+      } else if (videoZone) {
+        setHoverType('video');
       } else {
         setHoverType('default');
       }

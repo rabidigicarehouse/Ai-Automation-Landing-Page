@@ -21,6 +21,100 @@
   .ai-grid {
     @apply bg-[linear-gradient(to_right,rgba(41,211,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(109,124,255,0.08)_1px,transparent_1px)] bg-[size:56px_56px];
   }
+
+  @media (min-width: 1025px) and (max-width: 1366px) {
+    .laptop-scale-navbar {
+      position: relative;
+      left: 50%;
+      width: 100%;
+      transform: translateX(-50%) scale(0.9);
+      transform-origin: top center;
+      will-change: transform;
+    }
+
+    .laptop-scale-section {
+      position: relative;
+      left: 50%;
+      width: 100%;
+      transform: translateX(-50%) scale(0.88);
+      transform-origin: top center;
+      will-change: transform;
+    }
+
+    .laptop-scale-hero {
+      position: relative;
+      left: 50%;
+      width: 100%;
+      transform: translateX(-50%) scale(0.84);
+      transform-origin: top center;
+      will-change: transform;
+    }
+
+    .laptop-scale-services {
+      position: relative;
+      left: 50%;
+      width: 100%;
+      transform: translateX(-50%) scale(0.86);
+      transform-origin: top center;
+      will-change: transform;
+    }
+
+    .laptop-scale-pricing {
+      position: relative;
+      left: 50%;
+      width: 100%;
+      transform: translateX(-50%) scale(0.86);
+      transform-origin: top center;
+      will-change: transform;
+    }
+  }
+
+  @media (min-width: 1367px) and (max-width: 1560px) {
+    .laptop-scale-navbar {
+      position: relative;
+      left: 50%;
+      width: 100%;
+      transform: translateX(-50%) scale(0.95);
+      transform-origin: top center;
+      will-change: transform;
+    }
+
+    .laptop-scale-section {
+      position: relative;
+      left: 50%;
+      width: 100%;
+      transform: translateX(-50%) scale(0.93);
+      transform-origin: top center;
+      will-change: transform;
+    }
+
+    .laptop-scale-hero {
+      position: relative;
+      left: 50%;
+      width: 100%;
+      transform: translateX(-50%) scale(0.9);
+      transform-origin: top center;
+      will-change: transform;
+    }
+
+    .laptop-scale-services {
+      position: relative;
+      left: 50%;
+      width: 100%;
+      transform: translateX(-50%) scale(0.91);
+      transform-origin: top center;
+      will-change: transform;
+    }
+
+    .laptop-scale-pricing {
+      position: relative;
+      left: 50%;
+      width: 100%;
+      transform: translateX(-50%) scale(0.92);
+      transform-origin: top center;
+      will-change: transform;
+    }
+  }
 }
 
 html {

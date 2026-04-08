@@ -154,7 +154,7 @@ const Hero = () => {
   const inputClasses = "w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3.5 text-sm text-white placeholder:text-white/35 shadow-sm transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-50 sm:px-5 sm:py-4";
 
   return (
-    <section className="section !pt-[124px] sm:!pt-[145px] lg:!pt-[180px] pb-[90px] sm:pb-[120px] md:pb-[170px] flex items-center min-h-screen overflow-hidden" id="hero">
+    <section className="section !pt-[124px] sm:!pt-[145px] lg:!pt-[98px] xl:!pt-[106px] 2xl:!pt-[180px] pb-[90px] sm:pb-[120px] md:pb-[150px] lg:pb-[52px] xl:pb-[62px] 2xl:pb-[170px] flex items-center min-h-screen overflow-hidden" id="hero">
       
       {/* Decorative background grid and shapes */}
       <div className="cursor-video absolute inset-0 -z-20 overflow-hidden">
@@ -183,14 +183,14 @@ const Hero = () => {
         <div className="hero-ai-beam" />
       </div>
 
-      <div className="container mx-auto px-5 sm:px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-10 xl:gap-12 items-center z-10">
+      <div className="container laptop-scale-hero mx-auto w-full grid grid-cols-1 items-center gap-10 px-5 sm:gap-12 sm:px-6 lg:grid-cols-12 lg:gap-0 lg:px-2 xl:gap-1 xl:px-3 2xl:gap-12 z-10">
         
         {/* Left Side: Content */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="lg:col-span-7 flex flex-col items-start text-left"
+          className="lg:col-span-6 lg:pr-3 xl:pr-5 2xl:col-span-7 flex flex-col items-start text-left"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -206,7 +206,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="mb-6 max-w-full text-[2.95rem] font-black uppercase leading-[0.92] tracking-tight sm:mb-8 sm:text-6xl sm:leading-[0.9] md:text-8xl lg:text-[6.8rem] xl:text-8xl"
+            className="mb-5 max-w-full text-[2.95rem] font-black uppercase leading-[0.92] tracking-tight sm:mb-8 sm:text-6xl sm:leading-[0.9] md:text-8xl lg:text-[3.15rem] xl:text-[3.55rem] 2xl:text-8xl"
           >
             <span className="block text-white">Building</span>
             <span className="block text-gradient break-words">Autonomous</span>
@@ -219,9 +219,9 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15, duration: 0.5 }}
-            className="mb-8 max-w-xl text-base font-light leading-relaxed tracking-tight text-white sm:mb-10 sm:text-lg md:text-xl lg:max-w-[34rem] xl:max-w-xl"
+            className="mb-5 max-w-xl text-base font-light leading-relaxed tracking-tight text-white sm:mb-10 sm:text-lg lg:max-w-[22rem] lg:text-[0.86rem] xl:mb-7 xl:max-w-[24rem] xl:text-[0.92rem] 2xl:max-w-xl 2xl:text-xl"
           >
-            We build AI systems that automate, analyze, and execute work across your business without adding complexity.
+            The AI Syndicates build AI systems that automate, analyze, and execute work across your business without adding complexity.
           </motion.p>
 
           <motion.div
@@ -246,7 +246,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
-            className="mt-12 grid w-full max-w-xl grid-cols-3 gap-x-4 gap-y-5 border-t border-white/10 pt-8 sm:mt-16 sm:gap-x-8 sm:pt-10"
+            className="mt-4 grid w-full max-w-xl grid-cols-3 gap-x-4 gap-y-4 border-t border-white/10 pt-6 sm:mt-16 sm:gap-x-8 sm:pt-10 lg:mt-1 lg:gap-x-3 lg:pt-3 xl:mt-3 xl:gap-x-4 xl:pt-4"
           >
              <div className="min-w-0">
                <div className="font-heading text-[2rem] font-black leading-none text-white sm:text-4xl">180+</div>
@@ -268,12 +268,12 @@ const Hero = () => {
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-          className="lg:col-span-5 w-full relative"
+          className="lg:col-span-6 2xl:col-span-5 w-full relative lg:max-w-[39rem] lg:justify-self-end xl:max-w-[41rem] xl:justify-self-end 2xl:max-w-[32rem] 2xl:justify-self-end"
         >
           {/* Inner Glow Background */}
           <div className="absolute inset-0 bg-primary/20 rounded-full blur-[100px] opacity-20 dark:opacity-40 -z-10" />
           
-          <div className="rounded-[2rem] sm:rounded-[2.5rem] md:rounded-[3.5rem] border border-primary/25 relative overflow-visible bg-[#0d1628]/90 backdrop-blur-3xl shadow-[0_50px_100px_rgba(0,0,0,0.45)] p-5 sm:p-7 md:p-12">
+          <div className="rounded-[2rem] sm:rounded-[2.5rem] md:rounded-[3.5rem] lg:rounded-[2.2rem] xl:rounded-[2.35rem] 2xl:rounded-[3.5rem] border border-primary/25 relative overflow-visible bg-[#0d1628]/90 backdrop-blur-3xl shadow-[0_50px_100px_rgba(0,0,0,0.45)] p-5 sm:p-7 lg:p-4 xl:p-[1.15rem] 2xl:p-12">
             {status === 'SUCCESS' ? (
               <div className="flex min-h-[400px] flex-col items-center justify-center rounded-[1.75rem] border border-emerald-500/20 bg-emerald-500/10 p-8 text-center md:min-h-[470px]">
                 <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/20">
@@ -291,16 +291,16 @@ const Hero = () => {
               <>
                 <div className="mb-6 sm:mb-8">
                   <div className="inline-block px-3.5 sm:px-4 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest mb-3 sm:mb-4 border border-primary/20">Live Automation Intake</div>
-                  <h2 className="text-2xl sm:text-3xl font-black font-heading tracking-tighter text-white uppercase leading-none">Map Your Automation Stack</h2>
+                  <h2 className="text-2xl sm:text-3xl lg:text-[1.1rem] xl:text-[1.22rem] 2xl:text-[1.92rem] font-medium font-heading tracking-tight text-white uppercase leading-none">Map Your Automation Stack</h2>
                 </div>
 
-                <form onSubmit={handleHeroSubmit} className="flex flex-col gap-5">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <form onSubmit={handleHeroSubmit} className="flex flex-col gap-5 lg:gap-4 xl:gap-4.5">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-4 xl:gap-4.5">
                     <input required type="text" name="user_name" placeholder="Full Name" value={formData.user_name} onChange={handleChange} className={inputClasses} disabled={status === 'SENDING'} />
                     <input required type="email" name="user_email" placeholder="Email Address" value={formData.user_email} onChange={handleChange} className={inputClasses} disabled={status === 'SENDING'} />
                   </div>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-4 xl:gap-4.5">
                     <input required type="tel" inputMode="tel" name="user_phone" placeholder="Phone Number" value={formData.user_phone} onChange={handleChange} className={inputClasses} disabled={status === 'SENDING'} />
                     <div className="relative group/field">
                       {isCustomBudget ? (

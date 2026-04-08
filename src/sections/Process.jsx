@@ -17,16 +17,16 @@ const Process = () => {
       {/* Background flare */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] -z-10 pointer-events-none" />
 
-      <div className="container mx-auto px-6">
+      <div className="container laptop-scale-section mx-auto px-6">
         <SectionHeading subtitle="Automation Delivery Framework" title="Built To Run" centered />
 
-        <div className="mt-24 relative">
+        <div className="mt-16 xl:mt-20 2xl:mt-24 relative">
           {/* Static Centered Connecting Line (Desktop) */}
           <div className="hidden lg:block absolute top-[60px] left-0 w-full px-20 pointer-events-none -z-0">
              <div className="h-[1px] w-full border-t-2 border-dashed border-slate-200 dark:border-white/10 opacity-30" />
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 xl:gap-7 2xl:gap-8">
             {steps.map((step, idx) => (
               <motion.div
                 key={idx}
@@ -39,17 +39,17 @@ const Process = () => {
                   scale: 1.02,
                   transition: { duration: 0.4, ease: "easeOut" } 
                 }}
-                className="relative flex flex-col items-center text-center group p-8 rounded-[3rem] dark:bg-dark-card/40 bg-white border border-slate-200 dark:border-white/5 shadow-xl transition-all duration-500 z-10 hover:border-primary/50 overflow-hidden"
+                className="relative flex flex-col items-center text-center group p-6 xl:p-7 2xl:p-8 rounded-[2.5rem] xl:rounded-[2.7rem] 2xl:rounded-[3rem] dark:bg-dark-card/40 bg-white border border-slate-200 dark:border-white/5 shadow-xl transition-all duration-500 z-10 hover:border-primary/50 overflow-hidden"
               >
                 {/* Moving Gradient Highlight on Hover */}
                 <div className="absolute inset-x-0 bottom-0 h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
                 
-                <div className="w-20 h-20 rounded-3xl dark:bg-white/5 bg-slate-50 flex items-center justify-center text-slate-400 group-hover:text-primary group-hover:scale-110 group-hover:rotate-12 transition-all duration-700 z-10 border border-slate-200 dark:border-white/10 mb-8 shadow-sm">
+                <div className="w-16 h-16 xl:w-[4.5rem] xl:h-[4.5rem] 2xl:w-20 2xl:h-20 rounded-[1.4rem] xl:rounded-[1.6rem] 2xl:rounded-3xl dark:bg-white/5 bg-slate-50 flex items-center justify-center text-slate-400 group-hover:text-primary group-hover:scale-110 group-hover:rotate-12 transition-all duration-700 z-10 border border-slate-200 dark:border-white/10 mb-6 xl:mb-7 2xl:mb-8 shadow-sm">
                   {React.cloneElement(step.icon, { className: "w-8 h-8" })}
                 </div>
                 
-                <h4 className="text-2xl font-black dark:text-white text-slate-900 mb-4 font-heading relative z-10 uppercase tracking-tighter leading-none">{step.title}</h4>
-                <p className="text-sm dark:text-gray-400 text-slate-600 font-light leading-relaxed relative z-10 tracking-tight">{step.desc}</p>
+                <h4 className="text-[1.35rem] xl:text-[1.5rem] 2xl:text-2xl font-black dark:text-white text-slate-900 mb-3 xl:mb-4 font-heading relative z-10 uppercase tracking-tighter leading-none">{step.title}</h4>
+                <p className="text-[13px] xl:text-[13.5px] 2xl:text-sm dark:text-gray-400 text-slate-600 font-light leading-relaxed relative z-10 tracking-tight">{step.desc}</p>
                 
                 {/* Step number hint */}
                 <span className="absolute -top-4 -right-2 text-7xl font-black opacity-[0.03] dark:group-hover:opacity-[0.1] group-hover:opacity-[0.05] transition-opacity font-heading">0{idx + 1}</span>

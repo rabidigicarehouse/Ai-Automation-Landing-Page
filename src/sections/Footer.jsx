@@ -22,9 +22,9 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-slate-50 dark:bg-dark-bg text-slate-900 dark:text-light border-t border-black/5 dark:border-white/5 pt-20 pb-12 overflow-hidden min-h-screen flex items-center">
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-16 mb-20 border-b border-black/5 dark:border-white/5 pb-20">
+    <footer className="bg-slate-50 dark:bg-dark-bg text-slate-900 dark:text-light border-t border-black/5 dark:border-white/5 pt-16 xl:pt-[4.5rem] 2xl:pt-20 pb-10 xl:pb-11 2xl:pb-12 overflow-hidden min-h-screen flex items-center">
+      <div className="container laptop-scale-section mx-auto px-6 relative z-10">
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-12 xl:gap-14 2xl:gap-16 mb-16 xl:mb-[4.5rem] 2xl:mb-20 border-b border-black/5 dark:border-white/5 pb-16 xl:pb-[4.5rem] 2xl:pb-20">
           <div className="max-w-md w-full">
             <a href="#" onClick={(e) => handleScrollTo(e, '#')} className="flex items-center group mb-10">
               <div className="hidden relative h-14 w-14 items-center justify-center rounded-[1.4rem] border border-primary/30 bg-[linear-gradient(145deg,rgba(41,211,255,0.16),rgba(109,124,255,0.16),rgba(139,255,176,0.14))] shadow-[0_0_36px_rgba(41,211,255,0.18)] transition-transform group-hover:scale-105">

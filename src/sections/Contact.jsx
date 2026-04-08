@@ -25,11 +25,11 @@ const Contact = () => {
   }, []);
 
   return (
-    <section ref={container} className="section relative overflow-hidden bg-slate-50 py-20 dark:bg-dark-bg sm:py-24 md:py-32" id="contact">
+    <section ref={container} className="section relative overflow-hidden bg-slate-50 pt-28 pb-20 dark:bg-dark-bg sm:pt-28 sm:pb-24 lg:pt-[9.2rem] lg:pb-[5.5rem] xl:pt-[10rem] xl:pb-24 2xl:pt-36 2xl:pb-28" id="contact">
       <div className="absolute top-1/2 left-1/2 -z-10 h-[600px] w-full max-w-[1200px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 opacity-30 blur-[150px] mix-blend-screen dark:opacity-60" />
 
-      <div className="container relative z-10 mx-auto px-5 sm:px-6">
-        <div className="flex flex-col items-center justify-between gap-12 sm:gap-14 lg:flex-row lg:gap-14">
+      <div className="container laptop-scale-section relative z-10 mx-auto px-5 sm:px-6">
+        <div className="flex flex-col items-center justify-between gap-12 sm:gap-14 lg:flex-row lg:gap-10 xl:gap-12 2xl:gap-14">
           <div className="w-full text-left lg:w-[42%]">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -41,17 +41,17 @@ const Contact = () => {
               <span className="text-xs font-black tracking-widest text-primary uppercase">Deploy With Us</span>
             </motion.div>
 
-            <h2 className="font-heading mb-8 text-[3.4rem] font-black tracking-tighter text-slate-950 uppercase leading-[0.8] dark:text-white sm:text-6xl md:mb-10 md:text-8xl">
+            <h2 className="font-heading mb-7 text-[3.4rem] font-black tracking-tighter text-slate-950 uppercase leading-[0.8] dark:text-white sm:text-6xl md:mb-9 md:text-8xl lg:text-[4.1rem] xl:text-[4.6rem] 2xl:text-8xl">
               Built for <br />
               <span className="text-gradient italic">Automation.</span>
             </h2>
 
-            <p className="mb-10 text-lg font-light leading-relaxed tracking-tight text-slate-600 dark:text-gray-400 sm:mb-16 sm:text-xl md:text-2xl">
+            <p className="mb-8 text-lg font-light leading-relaxed tracking-tight text-slate-600 dark:text-gray-400 sm:mb-16 sm:text-xl lg:text-[0.98rem] xl:text-[1.08rem] 2xl:text-2xl">
               Bring us the repetitive work, fragile handoffs, or messy operating flow. We&apos;ll design the AI system that makes it run cleanly.
             </p>
 
             <div className="contact-visual relative hidden lg:block">
-              <div className="group h-80 w-80 rotate-6 cursor-pointer rounded-[3rem] bg-gradient-to-tr from-primary to-secondary p-1 transition-transform duration-700 hover:rotate-0">
+              <div className="group h-72 w-72 xl:h-[18.5rem] xl:w-[18.5rem] 2xl:h-80 2xl:w-80 rotate-6 cursor-pointer rounded-[2.6rem] xl:rounded-[2.8rem] 2xl:rounded-[3rem] bg-gradient-to-tr from-primary to-secondary p-1 transition-transform duration-700 hover:rotate-0">
                 <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-[2.8rem] bg-white dark:bg-dark-bg">
                   <video
                     autoPlay
@@ -67,8 +67,8 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="w-full lg:w-[58%] xl:w-[54%]">
-            <div className="relative w-full lg:ml-auto lg:max-w-[760px]">
+          <div className="w-full lg:w-[56%] xl:w-[52%]">
+            <div className="relative w-full lg:ml-auto lg:max-w-[700px] lg:sticky lg:top-[108px] xl:max-w-[730px] xl:top-[116px]">
               <div className="absolute -inset-10 -z-10 animate-pulse rounded-full bg-primary/10 blur-[80px]" />
               <ServiceForm />
             </div>

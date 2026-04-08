@@ -44,10 +44,10 @@ const Testimonials = () => {
   const prev = () => setCurrent(curr => (curr === 0 ? testimonials.length - 1 : curr - 1));
 
   return (
-    <section className="section py-32 bg-slate-50 dark:bg-dark-bg overflow-hidden" id="testimonials">
-      <div className="container mx-auto px-6">
+    <section className="section py-24 xl:py-28 2xl:py-32 bg-slate-50 dark:bg-dark-bg overflow-hidden" id="testimonials">
+      <div className="container laptop-scale-section mx-auto px-6">
         
-        <div className="flex flex-col lg:flex-row items-center gap-20">
+        <div className="flex flex-col lg:flex-row items-center gap-14 xl:gap-16 2xl:gap-20">
            
            {/* Left Info Panel */}
            <div className="w-full lg:w-1/3 text-left">
@@ -58,11 +58,11 @@ const Testimonials = () => {
               >
                 <img src={googleLogo} alt="Google" className="h-10 w-auto object-contain" />
               </motion.div>
-              <h2 className="text-6xl font-black font-heading tracking-tighter uppercase mb-10 dark:text-white text-slate-950 leading-[0.8]">
+              <h2 className="text-5xl xl:text-[3.6rem] 2xl:text-6xl font-black font-heading tracking-tighter uppercase mb-8 xl:mb-9 2xl:mb-10 dark:text-white text-slate-950 leading-[0.8]">
                  Proven <br />
                  <span className="text-gradient italic">Outcomes.</span>
               </h2>
-              <p className="text-xl dark:text-gray-400 text-slate-600 font-light leading-relaxed mb-10 tracking-tight">
+              <p className="text-lg xl:text-[1.15rem] 2xl:text-xl dark:text-gray-400 text-slate-600 font-light leading-relaxed mb-8 xl:mb-9 2xl:mb-10 tracking-tight">
                  Teams trust us because the systems go live, the automations hold up, and the business impact is visible fast.
               </p>
               
@@ -89,17 +89,17 @@ const Testimonials = () => {
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                   className="w-full"
                 >
-                   <div className="relative p-12 md:p-20 rounded-[4rem] dark:bg-dark-card/60 bg-white border border-black/5 dark:border-white/5 shadow-2xl overflow-hidden group">
+                   <div className="relative p-10 md:p-14 xl:p-16 2xl:p-20 rounded-[3rem] xl:rounded-[3.4rem] 2xl:rounded-[4rem] dark:bg-dark-card/60 bg-white border border-black/5 dark:border-white/5 shadow-2xl overflow-hidden group">
                       <Quote className="absolute top-10 right-10 text-primary opacity-20 group-hover:opacity-40 transition-opacity duration-700 w-24 h-24" />
                       
                       <div className="flex items-center gap-4 mb-10">
                         <div className="flex gap-1">
-                           {[1,2,3,4,5].map(i => <Star key={i} className="w-6 h-6 fill-primary text-primary" />)}
+                           {[1,2,3,4,5].map(i => <Star key={i} className="w-6 h-6 fill-[#FBBC04] text-[#FBBC04]" />)}
                         </div>
                         <img src={verifiedBadge} alt="Verified" className="w-6 h-6 object-contain" />
                       </div>
 
-                      <p className="text-2xl md:text-4xl dark:text-white text-slate-950 font-black italic leading-[1.1] mb-12 tracking-tighter uppercase">
+                      <p className="text-2xl md:text-4xl xl:text-[2rem] 2xl:text-4xl dark:text-white text-slate-950 font-black italic leading-[1.1] mb-10 xl:mb-11 2xl:mb-12 tracking-tighter uppercase">
                          "{testimonials[current].text}"
                       </p>
 

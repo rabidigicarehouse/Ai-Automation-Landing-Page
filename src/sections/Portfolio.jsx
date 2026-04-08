@@ -180,11 +180,11 @@ const PortfolioCard = memo(function PortfolioCard({ project, index }) {
 const Portfolio = () => {
 
   return (
-    <section className="section relative overflow-hidden bg-white dark:bg-dark-bg z-30" id="work">
+    <section className="section relative overflow-hidden bg-white py-24 xl:py-28 2xl:py-32 dark:bg-dark-bg z-30" id="work">
       <div className="absolute top-1/2 right-0 h-[600px] w-[600px] -translate-y-1/2 translate-x-1/2 rounded-full bg-primary/10 blur-[120px] opacity-15 -z-10" />
 
-      <div className="container mx-auto px-6">
-        <div className="mb-24 flex flex-col gap-12 md:flex-row md:items-end md:justify-between">
+      <div className="container laptop-scale-section mx-auto px-6">
+        <div className="mb-16 xl:mb-20 2xl:mb-24 flex flex-col gap-10 xl:gap-12 md:flex-row md:items-end md:justify-between">
           <SectionHeading subtitle="Automation Use Cases" title="Scaling Systems" />
           <motion.a
             href="#"
@@ -196,7 +196,7 @@ const Portfolio = () => {
           </motion.a>
         </div>
 
-        <div className="grid grid-cols-1 gap-12 md:gap-16 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-8 xl:gap-10 2xl:gap-12 md:gap-12 xl:md:gap-14 lg:grid-cols-2">
           {projects.map((project, index) => (
             <PortfolioCard key={project.title} project={project} index={index} />
           ))}

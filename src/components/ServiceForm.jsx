@@ -137,15 +137,15 @@ export default function ServiceForm({ initialService, isMini = false }) {
 
   const fieldBase = isMini
     ? 'px-4 py-3 text-[15px] lg:px-3.5 lg:py-2.5 lg:text-[14px] xl:px-4 xl:py-3 xl:text-[15px]'
-    : 'px-4 sm:px-5 py-3.5 sm:py-4 text-sm';
+    : 'px-4 sm:px-5 py-3.5 sm:py-4 text-sm lg:px-3.5 lg:py-[0.6875rem] lg:text-[12.5px] xl:px-4 xl:py-3 xl:text-[13px]';
 
   return (
-    <div className={`${isMini ? 'h-full rounded-[1.75rem] p-4 md:rounded-[2rem] md:p-5 lg:p-4 xl:p-5' : 'rounded-[1.75rem] p-5 sm:rounded-[2rem] sm:p-6 md:rounded-[2.5rem] md:p-10'} group relative overflow-visible border border-slate-200 bg-slate-50 shadow-sm dark:border-white/10 dark:bg-white/5`}>
-      <h3 className={`${isMini ? 'mb-4 text-[1.85rem] md:text-[2rem] lg:text-[1.75rem] xl:text-[2rem]' : 'mb-5 text-lg sm:text-xl md:mb-6'} font-heading font-bold text-slate-900 dark:text-white`}>
+    <div className={`${isMini ? 'h-full rounded-[1.75rem] p-4 md:rounded-[2rem] md:p-5 lg:p-4 xl:p-5' : 'rounded-[1.75rem] p-5 sm:rounded-[2rem] sm:p-6 md:rounded-[2.5rem] md:p-10 lg:p-6 xl:p-7'} group relative overflow-visible border border-slate-200 bg-slate-50 shadow-sm dark:border-white/10 dark:bg-white/5`}>
+      <h3 className={`${isMini ? 'mb-4 text-[1.85rem] md:text-[2rem] lg:text-[1.75rem] xl:text-[2rem]' : 'mb-5 text-lg sm:text-xl md:mb-6 lg:text-[1.45rem] xl:text-[1.7rem]'} font-heading font-bold text-slate-900 dark:text-white`}>
         Start your project
       </h3>
 
-      <form onSubmit={handleSubmit} className={`${isMini ? 'space-y-3 lg:space-y-2.5 xl:space-y-3' : 'space-y-4'} relative z-10 w-full`}>
+      <form onSubmit={handleSubmit} className={`${isMini ? 'space-y-3 lg:space-y-2.5 xl:space-y-3' : 'space-y-4 lg:space-y-3.5 xl:space-y-4'} relative z-10 w-full`}>
         <div className={`grid grid-cols-1 md:grid-cols-2 ${isMini ? 'gap-3' : 'gap-3 sm:gap-3.5'}`}>
           <div>
             <input required type="text" name="user_name" placeholder="Full Name" value={formData.user_name} onChange={handleChange} className={`w-full rounded-2xl border border-slate-200 bg-white text-slate-900 ${fieldBase} font-light shadow-sm outline-none transition-all focus:border-primary/50 dark:border-white/10 dark:bg-dark-bg/50 dark:text-white`} />
@@ -171,9 +171,9 @@ export default function ServiceForm({ initialService, isMini = false }) {
           </div>
         </div>
 
-        <textarea required name="message" placeholder="Project details..." rows={isMini ? 2 : 3} value={formData.message} onChange={handleChange} className={`w-full resize-none rounded-2xl border border-slate-200 bg-white text-slate-900 ${isMini ? 'min-h-[84px] px-4 py-3 text-[15px] lg:min-h-[72px] lg:px-3.5 lg:py-2.5 lg:text-[14px] xl:min-h-[84px] xl:px-4 xl:py-3 xl:text-[15px]' : 'min-h-[110px] px-4 py-3.5 text-sm sm:min-h-0 sm:px-5 sm:py-4'} font-light shadow-sm outline-none transition-all focus:border-primary/50 dark:border-white/10 dark:bg-dark-bg/50 dark:text-white`} />
+        <textarea required name="message" placeholder="Project details..." rows={isMini ? 2 : 3} value={formData.message} onChange={handleChange} className={`w-full resize-none rounded-2xl border border-slate-200 bg-white text-slate-900 ${isMini ? 'min-h-[84px] px-4 py-3 text-[15px] lg:min-h-[72px] lg:px-3.5 lg:py-2.5 lg:text-[14px] xl:min-h-[84px] xl:px-4 xl:py-3 xl:text-[15px]' : 'min-h-[110px] px-4 py-3.5 text-sm sm:min-h-0 sm:px-5 sm:py-4 lg:min-h-[88px] lg:px-3.5 lg:py-[0.6875rem] lg:text-[12.5px] xl:min-h-[96px] xl:px-4 xl:py-3 xl:text-[13px]'} font-light shadow-sm outline-none transition-all focus:border-primary/50 dark:border-white/10 dark:bg-dark-bg/50 dark:text-white`} />
 
-        <div className={`w-full rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-white/10 dark:bg-dark-bg/60 ${isMini ? 'mb-1 px-2.5 py-2.5 lg:px-2 lg:py-2 xl:px-2.5 xl:py-2.5' : 'mb-3 px-2.5 py-3 sm:mb-4 sm:px-4 sm:py-4'}`}>
+        <div className={`w-full rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-white/10 dark:bg-dark-bg/60 ${isMini ? 'mb-1 px-2.5 py-2.5 lg:px-2 lg:py-2 xl:px-2.5 xl:py-2.5' : 'mb-3 px-2.5 py-3 sm:mb-4 sm:px-4 sm:py-4 lg:px-3 lg:py-3 xl:px-3.5 xl:py-3.5'}`}>
           <div className="recaptcha-shell">
             <div className="recaptcha-frame">
               <ReCAPTCHA

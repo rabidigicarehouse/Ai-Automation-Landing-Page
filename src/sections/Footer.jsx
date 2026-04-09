@@ -86,8 +86,8 @@ const Footer = () => {
                   <Mail size={16} /> info@theaisyndicates.com
                   <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>
-                <a href="tel:+18886247689" className="flex items-center gap-2 group text-primary font-bold">
-                  <Phone size={16} /> +1 (888) 624 7689
+                <a href="tel:+18483843773" className="flex items-center gap-2 group text-primary font-bold">
+                  <Phone size={16} /> +1 (848) 384 3773
                   <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>
               </div>

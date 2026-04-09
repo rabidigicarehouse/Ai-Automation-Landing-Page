@@ -82,8 +82,8 @@ const Footer = () => {
                 Shipping globally, 24/7
               </p>
               <div className="flex flex-col gap-4">
-                <a href="mailto:hello@neuroflow.ai" className="flex items-center gap-2 group text-primary font-bold">
-                  <Mail size={16} /> hello@neuroflow.ai
+                <a href="mailto:info@theaisyndicates.com" className="flex items-center gap-2 group text-primary font-bold">
+                  <Mail size={16} /> info@theaisyndicates.com
                   <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>
                 <a href="tel:+18886247689" className="flex items-center gap-2 group text-primary font-bold">

@@ -71,13 +71,13 @@ const Navbar = () => {
     >
       <div className="container laptop-scale-navbar mx-auto px-5 sm:px-6 lg:pl-10 lg:pr-6 xl:pl-12 xl:pr-7 2xl:px-6 flex items-center justify-between">
         
-        {/* Brand Identity */}
+        {/* Brand Identity - ENLARGED LOGO */}
         <a href="#" onClick={(e) => handleScrollTo(e, '#')} className="flex items-center group relative lg:ml-2 xl:ml-3">
           <div className="hidden relative h-12 w-12 items-center justify-center rounded-2xl border border-primary/30 bg-[linear-gradient(145deg,rgba(41,211,255,0.16),rgba(109,124,255,0.16),rgba(139,255,176,0.14))] shadow-[0_0_30px_rgba(41,211,255,0.16)] transition-all duration-700 group-hover:scale-105 group-hover:rotate-6">
             <Bot className="h-6 w-6 text-primary" />
             <span className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-teal shadow-[0_0_18px_rgba(139,255,176,0.65)]" />
           </div>
-          <img src={logo} alt="AI Automation" className="h-11 sm:h-14 md:h-16 lg:h-[1.95rem] xl:h-[2.2rem] 2xl:h-16 max-w-[170px] lg:max-w-[150px] xl:max-w-[170px] 2xl:max-w-[220px] w-auto object-contain object-left transition-all duration-700 group-hover:scale-105" />
+          <img src={logo} alt="AI Automation" className="h-14 sm:h-16 md:h-[4.5rem] lg:h-[2.8rem] xl:h-[3.2rem] 2xl:h-[3.8rem] max-w-[220px] lg:max-w-[200px] xl:max-w-[240px] 2xl:max-w-[280px] w-auto object-contain object-left transition-all duration-700 group-hover:scale-105" />
         </a>
 
         {/* Agency Navigation (Desktop) */}

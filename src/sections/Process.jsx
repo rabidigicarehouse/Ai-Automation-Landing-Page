@@ -13,7 +13,7 @@ const steps = [
 
 const Process = () => {
   return (
-    <section className="section bg-slate-50 dark:bg-dark-bg overflow-hidden" id="process">
+    <section className="section section-theme-mint overflow-hidden" id="process">
       {/* Background flare */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] -z-10 pointer-events-none" />
 

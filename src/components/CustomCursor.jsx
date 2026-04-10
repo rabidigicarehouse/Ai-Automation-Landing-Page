@@ -17,33 +17,37 @@ const CustomCursor = () => {
   const crossY = useSpring(y, { damping: 22, stiffness: 220, mass: 0.5 });
 
   useEffect(() => {
+    const getHoverType = (target) => {
+      const videoZone = target?.closest?.('.cursor-video');
+      const buttonZone = target?.closest?.('a, button, input, textarea, select, [role="button"], .cursor-pointer');
+
+      if (videoZone) return 'video';
+      if (buttonZone) return 'button';
+      return 'default';
+    };
+
     const onMouseMove = (e) => {
       x.set(e.clientX);
       y.set(e.clientY);
       setIsVisible(true);
-
-      const target = e.target;
-      const buttonZone = target?.closest?.('a, button, input, textarea, select, [role="button"], .cursor-pointer');
-      const videoZone = target?.closest?.('.cursor-video');
-
-      if (buttonZone) {
-        setHoverType('button');
-      } else if (videoZone) {
-        setHoverType('video');
-      } else {
-        setHoverType('default');
-      }
+      setHoverType(getHoverType(e.target));
     };
 
     const onMouseLeave = () => setIsVisible(false);
     const onMouseEnter = () => setIsVisible(true);
+    const onScroll = () => {
+      const target = document.elementFromPoint(x.get(), y.get());
+      setHoverType(getHoverType(target));
+    };
 
     window.addEventListener('mousemove', onMouseMove, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
     document.addEventListener('mouseleave', onMouseLeave);
     document.addEventListener('mouseenter', onMouseEnter);
 
     return () => {
       window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('scroll', onScroll);
       document.removeEventListener('mouseleave', onMouseLeave);
       document.removeEventListener('mouseenter', onMouseEnter);
     };

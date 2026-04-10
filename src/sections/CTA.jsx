@@ -6,7 +6,7 @@ import { handleScrollTo } from '../utils/scrollTo';
 
 const CTA = () => {
   return (
-    <section className="section overflow-hidden bg-slate-50 dark:bg-dark-bg py-20 xl:py-24 2xl:py-[50px]" id="cta">
+    <section className="section section-theme-indigo overflow-hidden py-20 xl:py-24 2xl:py-[50px]" id="cta">
       {/* Dynamic colorful blur backgrounds */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1200px] h-full pointer-events-none flex justify-between z-0">
         <div className="w-[400px] h-[400px] bg-primary/30 rounded-full blur-[150px] mix-blend-screen" />

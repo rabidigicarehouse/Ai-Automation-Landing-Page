@@ -13,6 +13,7 @@ import Pricing from './sections/Pricing';
 import Footer from './sections/Footer';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import FloatingContact from './components/FloatingContact';
 
 const CustomCursor = lazy(() => import('./components/CustomCursor'));
 
@@ -106,6 +107,7 @@ function App() {
       </div>
 
       <Navbar />
+      <FloatingContact />
       
       <main className="flex flex-col items-center justify-center w-full">
         {sections.map((section, index) => (

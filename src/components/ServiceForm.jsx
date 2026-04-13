@@ -92,7 +92,7 @@ export default function ServiceForm({ initialService, isMini = false, forceDark 
         recaptcha_token: token,
       };
 
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/contact`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -190,7 +190,7 @@ export default function ServiceForm({ initialService, isMini = false, forceDark 
               <ReCAPTCHA
                 key={effectiveDarkMode ? 'captcha-dark' : 'captcha-light'}
                 ref={recaptchaRef}
-                sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY || '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'}
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'}
                 theme={effectiveDarkMode ? 'dark' : 'light'}
                 onChange={(value) => setCaptchaValue(value)}
                 onExpired={() => {

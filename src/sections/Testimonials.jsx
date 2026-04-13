@@ -9,31 +9,32 @@ import amandaImg from '../assets/Testimonials_clients/Amanda.jpg';
 import georgeImg from '../assets/Testimonials_clients/George.jpeg';
 import googleLogo from '../assets/google.png';
 import verifiedBadge from '../assets/verified.png';
+import { assetSrc } from '../utils/assetSrc';
 
 const testimonials = [
   {
     name: "Matthew Jacobs",
     role: "Founder, Health Beyond Hype",
     text: "Their AI follow-up system cut response lag immediately and gave our team a far cleaner sales workflow.",
-    image: matthewImg
+    image: assetSrc(matthewImg)
   },
   {
     name: "Rick Cruz",
     role: "Founder, Bestway RV",
     text: "What used to take multiple people now runs through one automation layer. The operational lift was huge.",
-    image: rickImg
+    image: assetSrc(rickImg)
   },
   {
     name: "Amanda Parsi",
     role: "Operations Lead, Gateway Co.",
     text: "They translated our messy process map into a clean agent workflow the team actually trusts and uses every day.",
-    image: amandaImg
+    image: assetSrc(amandaImg)
   },
   {
     name: "George Grombacher",
     role: "Founder, Lifeblood",
     text: "The combination of strategy, systems thinking, and execution made this feel like a real operating upgrade, not a demo.",
-    image: georgeImg
+    image: assetSrc(georgeImg)
   }
 ];
 
@@ -56,7 +57,7 @@ const Testimonials = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 className="inline-flex items-center mb-8"
               >
-                <img src={googleLogo} alt="Google" className="h-10 w-auto object-contain" />
+                <img src={assetSrc(googleLogo)} alt="Google" className="h-10 w-auto object-contain" />
               </motion.div>
               <h2 className="text-5xl xl:text-[3.6rem] 2xl:text-6xl font-black font-heading tracking-tighter uppercase mb-8 xl:mb-9 2xl:mb-10 dark:text-white text-slate-950 leading-[0.8]">
                  Proven <br />
@@ -96,7 +97,7 @@ const Testimonials = () => {
                         <div className="flex gap-1">
                            {[1,2,3,4,5].map(i => <Star key={i} className="w-6 h-6 fill-[#FBBC04] text-[#FBBC04]" />)}
                         </div>
-                        <img src={verifiedBadge} alt="Verified" className="w-6 h-6 object-contain" />
+                        <img src={assetSrc(verifiedBadge)} alt="Verified" className="w-6 h-6 object-contain" />
                       </div>
 
                       <p className="text-2xl md:text-4xl xl:text-[2rem] 2xl:text-4xl dark:text-white text-slate-950 font-black italic leading-[1.1] mb-10 xl:mb-11 2xl:mb-12 tracking-tighter uppercase">

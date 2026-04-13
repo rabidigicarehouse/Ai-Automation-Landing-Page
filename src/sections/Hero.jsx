@@ -5,6 +5,7 @@ import Button from '../components/Button';
 import ServiceForm from '../components/ServiceForm';
 import { handleScrollTo } from '../utils/scrollTo';
 import heroVideo from '../assets/Animated_video/hero.mp4';
+import { assetSrc } from '../utils/assetSrc';
 
 const stats = [
   { label: 'Flows Automated', value: '180+' },
@@ -54,7 +55,7 @@ const Hero = () => {
         <video
           ref={heroVideoRef}
           className="h-full w-full object-cover"
-          src={heroVideo}
+          src={assetSrc(heroVideo)}
           autoPlay
           loop
           muted

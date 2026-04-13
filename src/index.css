@@ -48,46 +48,41 @@
 
   @media (min-width: 1025px) and (max-width: 1366px) {
     .laptop-scale-navbar {
-      position: relative;
-      left: 50%;
+      position: static;
       width: 100%;
-      transform: translateX(-50%) scale(0.9);
-      transform-origin: top center;
-      will-change: transform;
+      transform: none;
+      transform-origin: initial;
+      will-change: auto;
     }
 
     .laptop-scale-section {
       position: relative;
-      left: 50%;
       width: 100%;
-      transform: translateX(-50%) scale(0.88);
+      transform: scale(0.86);
       transform-origin: top center;
       will-change: transform;
     }
 
     .laptop-scale-hero {
       position: relative;
-      left: 50%;
       width: 100%;
-      transform: translateX(-50%) scale(0.84);
+      transform: scale(0.86);
       transform-origin: top center;
       will-change: transform;
     }
 
     .laptop-scale-services {
       position: relative;
-      left: 50%;
       width: 100%;
-      transform: translateX(-50%) scale(0.86);
+      transform: scale(0.84);
       transform-origin: top center;
       will-change: transform;
     }
 
     .laptop-scale-pricing {
       position: relative;
-      left: 50%;
       width: 100%;
-      transform: translateX(-50%) scale(0.86);
+      transform: scale(0.84);
       transform-origin: top center;
       will-change: transform;
     }
@@ -95,48 +90,129 @@
 
   @media (min-width: 1367px) and (max-width: 1560px) {
     .laptop-scale-navbar {
-      position: relative;
-      left: 50%;
+      position: static;
       width: 100%;
-      transform: translateX(-50%) scale(0.95);
-      transform-origin: top center;
-      will-change: transform;
+      transform: none;
+      transform-origin: initial;
+      will-change: auto;
     }
 
     .laptop-scale-section {
       position: relative;
-      left: 50%;
       width: 100%;
-      transform: translateX(-50%) scale(0.93);
+      transform: scale(0.91);
       transform-origin: top center;
       will-change: transform;
     }
 
     .laptop-scale-hero {
       position: relative;
-      left: 50%;
       width: 100%;
-      transform: translateX(-50%) scale(0.9);
+      transform: scale(0.91);
       transform-origin: top center;
       will-change: transform;
     }
 
     .laptop-scale-services {
       position: relative;
-      left: 50%;
       width: 100%;
-      transform: translateX(-50%) scale(0.91);
+      transform: scale(0.89);
       transform-origin: top center;
       will-change: transform;
     }
 
     .laptop-scale-pricing {
       position: relative;
-      left: 50%;
       width: 100%;
-      transform: translateX(-50%) scale(0.92);
+      transform: scale(0.9);
       transform-origin: top center;
       will-change: transform;
+    }
+  }
+
+  @media (min-width: 1561px) and (max-width: 1920px) and (max-height: 1100px) {
+    .laptop-scale-navbar {
+      position: static;
+      width: 100%;
+      transform: none;
+      transform-origin: initial;
+      will-change: auto;
+    }
+
+    .laptop-scale-section {
+      position: relative;
+      width: 100%;
+      transform: scale(0.89);
+      transform-origin: top center;
+      will-change: transform;
+    }
+
+    .laptop-scale-hero {
+      position: relative;
+      width: 100%;
+      transform: scale(0.89);
+      transform-origin: top center;
+      will-change: transform;
+    }
+
+    .laptop-scale-services {
+      position: relative;
+      width: 100%;
+      transform: scale(0.87);
+      transform-origin: top center;
+      will-change: transform;
+    }
+
+    .laptop-scale-pricing {
+      position: relative;
+      width: 100%;
+      transform: scale(0.88);
+      transform-origin: top center;
+      will-change: transform;
+    }
+  }
+
+  @media (min-width: 2200px) {
+    .container {
+      max-width: min(96vw, 2400px) !important;
+    }
+  }
+
+  .work-modal-frame {
+    width: min(82vw, 1120px);
+  }
+
+  .work-modal-image {
+    max-height: min(68vh, 760px);
+  }
+
+  @media (max-width: 1399px) {
+    .work-modal-frame {
+      width: min(68vw, 840px);
+    }
+
+    .work-modal-image {
+      max-height: min(56vh, 520px);
+    }
+  }
+
+  @media (min-width: 1921px) and (min-height: 1081px) {
+    .panel-shell[data-panel-id="process"] > section,
+    .panel-shell[data-panel-id="testimonials"] > section,
+    .panel-shell[data-panel-id="cta"] > section,
+    .panel-shell[data-panel-id="footer"] > footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    .panel-shell[data-panel-id="process"] > section > .container,
+    .panel-shell[data-panel-id="testimonials"] > section > .container,
+    .panel-shell[data-panel-id="cta"] > section > .container,
+    .panel-shell[data-panel-id="footer"] > footer > .container {
+      width: 100%;
     }
   }
 }
@@ -208,6 +284,13 @@ body {
 
 .panel-shell {
   width: 100%;
+  min-height: 100svh;
+  overflow: hidden;
+}
+
+.panel-shell > section,
+.panel-shell > footer {
+  min-height: 100svh;
 }
 
 ::-webkit-scrollbar {

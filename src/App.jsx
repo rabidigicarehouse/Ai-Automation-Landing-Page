@@ -6,6 +6,7 @@ import Services from './sections/Services';
 import TechStack from './sections/TechStack';
 import Portfolio from './sections/Portfolio';
 import Process from './sections/Process';
+import OurWork from './sections/OurWork';
 import Testimonials from './sections/Testimonials';
 import Contact from './sections/Contact';
 import CTA from './sections/CTA';
@@ -86,10 +87,11 @@ function App() {
     { id: 'services', node: <Services key="services" /> },
     { id: 'tech', node: <TechStack key="tech-stack" /> },
     { id: 'work', node: <Portfolio key="portfolio" /> },
-    { id: 'cta', node: <CTA key="cta" /> },
     { id: 'pricing', node: <Pricing key="pricing" /> },
     { id: 'process', node: <Process key="process" /> },
+    { id: 'our-work', node: <OurWork key="our-work" /> },
     { id: 'testimonials', node: <Testimonials key="testimonials" /> },
+    { id: 'cta', node: <CTA key="cta" /> },
     { id: 'contact', node: <Contact key="contact" /> },
     { id: 'footer', node: <Footer key="footer" /> },
   ];

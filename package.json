@@ -4,10 +4,11 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"vite\" \"node backend/server.js\"",
-    "build": "vite build",
+    "dev": "next dev",
+    "build": "next build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "next start",
+    "start": "next start"
   },
   "dependencies": {
     "@studio-freight/lenis": "^1.0.42",
@@ -19,6 +20,7 @@
     "gsap": "^3.12.5",
     "lottie-react": "^2.4.0",
     "lucide-react": "^0.344.0",
+    "next": "^14.2.30",
     "nodemailer": "^6.9.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -29,7 +31,6 @@
   "devDependencies": {
     "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",
-    "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.18",
     "concurrently": "^8.2.2",
     "eslint": "^8.56.0",
@@ -37,7 +38,6 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "postcss": "^8.4.35",
-    "tailwindcss": "^3.4.1",
-    "vite": "^5.1.4"
+    "tailwindcss": "^3.4.1"
   }
 }

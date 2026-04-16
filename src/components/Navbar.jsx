@@ -75,20 +75,26 @@ const Navbar = () => {
         </a>
 
         <nav className="hidden items-center gap-[1.35rem] lg:ml-auto lg:mr-2 lg:flex xl:mr-3 xl:gap-[1.8rem] 2xl:gap-10">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={(e) => {
-                if (link.href.startsWith('/')) return;
-                handleScrollTo(e, link.href);
-              }}
-              className={`group relative overflow-hidden text-[7px] font-black uppercase tracking-[0.13em] transition-all duration-500 hover:text-primary dark:hover:text-primary xl:text-[8px] xl:tracking-[0.17em] 2xl:text-[10px] 2xl:tracking-[0.2em] ${desktopNavTextClass}`}
-            >
-              <span className="block transition-transform duration-500 group-hover:-translate-y-full">{link.name}</span>
-              <span className="absolute left-0 top-full block text-primary transition-transform duration-500 group-hover:-translate-y-full">{link.name}</span>
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isSection = link.href.startsWith('#');
+            const targetHref = isHomePage || !isSection ? link.href : `/${link.href}`;
+            
+            return (
+              <a
+                key={link.name}
+                href={targetHref}
+                onClick={(e) => {
+                  if (isSection && isHomePage) {
+                    handleScrollTo(e, link.href);
+                  }
+                }}
+                className={`group relative overflow-hidden text-[7px] font-black uppercase tracking-[0.13em] transition-all duration-500 hover:text-primary dark:hover:text-primary xl:text-[8px] xl:tracking-[0.17em] 2xl:text-[10px] 2xl:tracking-[0.2em] ${desktopNavTextClass}`}
+              >
+                <span className="block transition-transform duration-500 group-hover:-translate-y-full">{link.name}</span>
+                <span className="absolute left-0 top-full block text-primary transition-transform duration-500 group-hover:-translate-y-full">{link.name}</span>
+              </a>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-4 lg:gap-3.5 xl:gap-4.5">
@@ -133,27 +139,30 @@ const Navbar = () => {
               </div>
 
               <div className="flex flex-col gap-3">
-                {navLinks.map((link, i) => (
-                  <motion.a
-                    key={link.name}
-                    href={link.href}
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.1 + 0.2 }}
-                    className="group flex items-center justify-between rounded-[1.4rem] border border-black/5 bg-slate-50/90 px-5 py-4 text-[2.15rem] font-black uppercase tracking-tighter text-slate-950 transition-all hover:border-primary/20 hover:bg-primary/5 hover:text-primary dark:border-white/8 dark:bg-white/[0.03] dark:text-white dark:hover:text-primary"
-                    onClick={(e) => {
-                      if (link.href.startsWith('/')) {
+                {navLinks.map((link, i) => {
+                  const isSection = link.href.startsWith('#');
+                  const targetHref = isHomePage || !isSection ? link.href : `/${link.href}`;
+
+                  return (
+                    <motion.a
+                      key={link.name}
+                      href={targetHref}
+                      initial={{ opacity: 0, x: -30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.1 + 0.2 }}
+                      className="group flex items-center justify-between rounded-[1.4rem] border border-black/5 bg-slate-50/90 px-5 py-4 text-[2.15rem] font-black uppercase tracking-tighter text-slate-950 transition-all hover:border-primary/20 hover:bg-primary/5 hover:text-primary dark:border-white/8 dark:bg-white/[0.03] dark:text-white dark:hover:text-primary"
+                      onClick={(e) => {
+                        if (isSection && isHomePage) {
+                          handleScrollTo(e, link.href);
+                        }
                         setMobileMenuOpen(false);
-                        return;
-                      }
-                      handleScrollTo(e, link.href);
-                      setMobileMenuOpen(false);
-                    }}
-                  >
-                    <span>{link.name}</span>
-                    <ArrowUpRight className="h-6 w-6 translate-x-0 opacity-50 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:opacity-100" />
-                  </motion.a>
-                ))}
+                      }}
+                    >
+                      <span>{link.name}</span>
+                      <ArrowUpRight className="h-6 w-6 translate-x-0 opacity-50 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:opacity-100" />
+                    </motion.a>
+                  );
+                })}
               </div>
 
               <a href="#contact" onClick={(e) => { handleScrollTo(e, '#contact'); setMobileMenuOpen(false); }} className="mt-6 block sm:hidden">

@@ -1,17 +1,18 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'next/navigation';
 import Navbar from '../../../src/components/Navbar';
 import Footer from '../../../src/sections/Footer';
 import blogs from '../../../src/data/blogs.json';
-import { motion } from 'framer-motion';
-import { Calendar, Clock, ChevronLeft, Share2, Sparkles } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Calendar, Clock, ChevronLeft, Share2, Sparkles, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 
 const BlogInternal = () => {
   const { slug } = useParams();
   const blog = blogs.find((b) => b.slug === slug);
+  const [activeFaq, setActiveFaq] = useState(null);
 
   if (!blog) return <div>404 Not Found</div>;
 
@@ -85,6 +86,49 @@ const BlogInternal = () => {
                 prose-strong:text-primary prose-strong:font-black"
               dangerouslySetInnerHTML={{ __html: blog.content }}
             />
+
+            {/* FAQ Accordion Section */}
+            {blog.faqs && blog.faqs.length > 0 && (
+              <div className="mt-24 pt-20 border-t border-black/5 dark:border-white/5">
+                <div className="mb-12">
+                   <h2 className="font-poppins text-3xl md:text-4xl font-black uppercase tracking-tight text-gray-900 dark:text-white">
+                      Frequently Asked <span className="text-primary italic">Questions</span>
+                   </h2>
+                </div>
+                <div className="space-y-4">
+                  {blog.faqs.map((faq, index) => (
+                    <div 
+                      key={index}
+                      className="group rounded-3xl border border-black/5 dark:border-white/5 bg-slate-50 dark:bg-white/5 overflow-hidden transition-all duration-300"
+                    >
+                      <button
+                        onClick={() => setActiveFaq(activeFaq === index ? null : index)}
+                        className="w-full flex items-center justify-between p-6 sm:p-8 text-left"
+                      >
+                        <span className="font-poppins text-lg sm:text-xl font-bold text-gray-900 dark:text-white pr-8">
+                          {faq.question}
+                        </span>
+                        <ChevronDown className={`w-6 h-6 text-primary transition-transform duration-500 ${activeFaq === index ? 'rotate-180' : ''}`} />
+                      </button>
+                      <AnimatePresence>
+                        {activeFaq === index && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                          >
+                            <div className="px-6 sm:px-8 pb-8 text-slate-600 dark:text-slate-400 font-light leading-relaxed text-lg italic border-t border-black/5 dark:border-white/5 pt-6">
+                              {faq.answer}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Footer / Share Info */}
             <div className="mt-20 pt-16 border-t border-black/5 dark:border-white/5 flex flex-col md:flex-row items-center justify-between gap-8">

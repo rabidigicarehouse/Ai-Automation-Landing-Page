@@ -35,6 +35,44 @@ function App() {
     return () => window.clearTimeout(timeoutId);
   }, []);
 
+  useEffect(() => {
+    // Handle hash links on mount
+    const handleHashScroll = () => {
+      const hash = window.location.hash;
+      if (hash && hash.length > 1) {
+        const targetId = hash.substring(1);
+        const attemptScroll = (retries = 0) => {
+          const element = document.getElementById(targetId);
+          if (element && window.__panelStarts) {
+            const panel = element.closest('.panel-shell') || element;
+            const panelId = panel.dataset?.panelId || targetId;
+            const gsapStart = window.__panelStarts[panelId];
+            
+            if (typeof gsapStart === 'number') {
+              if (window.lenis) {
+                window.lenis.scrollTo(gsapStart, { duration: 1.2, immediate: retries > 5 });
+              } else {
+                window.scrollTo({ top: gsapStart, behavior: 'instant' });
+              }
+              // Clean up hash from URL without reloading
+              window.history.replaceState(null, '', window.location.pathname);
+              return;
+            }
+          }
+          
+          if (retries < 20) {
+            setTimeout(() => attemptScroll(retries + 1), 100);
+          }
+        };
+        attemptScroll();
+      }
+    };
+
+    // Small delay to ensure GSAP and Lenis are initialized
+    const timer = setTimeout(handleHashScroll, 500);
+    return () => clearTimeout(timer);
+  }, []);
+
   useLayoutEffect(() => {
     let cleanupPanelStarts = null;
     let ctx = gsap.context(() => {

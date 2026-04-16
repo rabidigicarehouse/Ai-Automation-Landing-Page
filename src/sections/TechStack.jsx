@@ -21,8 +21,8 @@ const TechStack = () => {
   const list = [...technologies, ...technologies];
 
   return (
-    <section className="section section-theme-indigo py-16 xl:py-[4.5rem] 2xl:py-20 border-y border-black/[0.1] dark:border-white/[0.05] overflow-hidden" id="tech">
-      <div className="flex items-center space-x-12 animate-marquee whitespace-nowrap">
+    <section className="section section-theme-indigo min-h-0 py-0 border-y border-black/[0.1] dark:border-white/[0.05] overflow-hidden" id="tech">
+      <div className="flex items-center space-x-12 animate-marquee whitespace-nowrap py-3 sm:py-4 xl:py-4 2xl:py-5">
         {list.map((tech, idx) => (
           <div key={idx} className="flex items-center justify-center">
             <span className="px-9 xl:px-10 2xl:px-12 text-3xl md:text-5xl xl:text-[2.8rem] 2xl:text-5xl font-black uppercase tracking-tighter font-heading text-slate-300 dark:text-white/10 hover:text-primary dark:hover:text-primary transition-all duration-700">

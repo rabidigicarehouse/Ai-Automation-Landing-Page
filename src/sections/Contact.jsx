@@ -25,11 +25,11 @@ const Contact = () => {
   }, []);
 
   return (
-    <section ref={container} className="section section-theme-cyan relative overflow-hidden pt-28 pb-20 sm:pt-28 sm:pb-24 lg:pt-[9.2rem] lg:pb-[5.5rem] xl:pt-[10rem] xl:pb-24 2xl:pt-36 2xl:pb-28" id="contact">
+    <section ref={container} className="section section-theme-cyan relative box-border flex min-h-screen items-center overflow-hidden pb-16 pt-[140px] sm:pb-20 lg:pb-24 lg:pt-[160px] xl:pb-24 xl:pt-[180px] 2xl:pb-28 2xl:pt-[190px]" id="contact">
       <div className="absolute top-1/2 left-1/2 -z-10 h-[600px] w-full max-w-[1200px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 opacity-30 blur-[150px] mix-blend-screen dark:opacity-60" />
 
-      <div className="container laptop-scale-section relative z-10 mx-auto px-5 sm:px-6">
-        <div className="flex flex-col items-center justify-between gap-12 sm:gap-14 lg:flex-row lg:gap-10 xl:gap-12 2xl:gap-14">
+      <div className="container laptop-scale-section relative z-10 mx-auto flex w-full flex-col justify-center px-5 sm:px-6">
+        <div className="flex flex-col items-center justify-between gap-12 sm:gap-14 lg:flex-row lg:items-center lg:gap-10 xl:gap-12 2xl:gap-14">
           <div className="w-full text-left lg:w-[42%]">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

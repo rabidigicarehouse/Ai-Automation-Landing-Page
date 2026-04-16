@@ -45,8 +45,8 @@ const Testimonials = () => {
   const prev = () => setCurrent(curr => (curr === 0 ? testimonials.length - 1 : curr - 1));
 
   return (
-    <section className="section section-theme-indigo py-24 xl:py-28 2xl:py-32 overflow-hidden" id="testimonials">
-      <div className="container laptop-scale-section mx-auto px-6">
+    <section className="section section-theme-indigo flex min-h-screen items-center overflow-hidden py-16 xl:py-20 2xl:py-24" id="testimonials">
+      <div className="container laptop-scale-section mx-auto flex w-full flex-col justify-center px-6">
         
         <div className="flex flex-col lg:flex-row items-center gap-14 xl:gap-16 2xl:gap-20">
            

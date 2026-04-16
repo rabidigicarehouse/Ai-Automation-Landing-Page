@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "slug": "ai-automation-blueprint",
+    "title": "The AI Automation Blueprint for Agencies",
+    "excerpt": "Reclaim 20+ hours a week by automating the repetitive tasks that drain your agency's creative energy.",
+    "category": "AI Automation",
+    "date": "April 16, 2026",
+    "readTime": "7 min read",
+    "image": "/assets/blogs/blog_ai.png",
+    "content": "<h1>Efficiency Redefined</h1><p>AI isn't coming for your job; it's coming for your boring tasks. Our automation blueprint focuses on the project lifecycle—from intake to reporting.</p><h2>The 80/20 Rule of AI</h2><p>80% of administrative work can be automated, allowing your team to focus on the 20% of work that actually requires human genius and empathy.</p>"
+  },
+  {
+    "id": 2,
+    "slug": "neural-network-simplicity",
+    "title": "Simplifying Complexity: Deep AI Integration",
+    "excerpt": "How to integrate complex large language models into simple, user-friendly business applications.",
+    "category": "AI Automation",
+    "date": "April 12, 2026",
+    "readTime": "10 min read",
+    "image": "/assets/blogs/blog_ai_2.jpg",
+    "content": "<h1>Architecting Intelligence</h1><p>Integrating AI isn't just about calling an API; it's about context. Vector databases and RAG (Retrieval-Augmented Generation) are the tools of the modern automation expert.</p><h2>Building Trust</h2><p>Transparency is key. Users need to know when they are interacting with AI, and the AI needs to be grounded in verifiable data to prevent hallucinations.</p>"
+  },
+  {
+    "id": 3,
+    "slug": "roi-of-automation",
+    "title": "The ROI of Automation: Hard Data",
+    "excerpt": "Measuring the success of automation beyond just time saved. Discover the revenue-driven metrics that matter.",
+    "category": "AI Automation",
+    "date": "April 11, 2026",
+    "readTime": "5 min read",
+    "image": "/assets/blogs/blog_ai_3.jpg",
+    "content": "<h1>The Bottom Line</h1><p>Automation is an investment, not an expense. We look at lead conversion rates, client response times, and employee satisfaction as key indicators of success.</p><h2>Scaling Without Hiring</h2><p>The true ROI of AI is the ability to scale your company's output without linearly increasing your headcount. Efficiency is the new margin.</p>"
+  }
+]

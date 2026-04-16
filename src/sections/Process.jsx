@@ -13,14 +13,14 @@ const steps = [
 
 const Process = () => {
   return (
-    <section className="section section-theme-mint overflow-hidden" id="process">
+    <section className="section section-theme-mint flex min-h-screen items-center overflow-hidden" id="process">
       {/* Background flare */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] -z-10 pointer-events-none" />
 
-      <div className="container laptop-scale-section mx-auto px-6">
+      <div className="container laptop-scale-section mx-auto flex w-full flex-col justify-center px-6">
         <SectionHeading subtitle="Automation Delivery Framework" title="Built To Run" centered />
 
-        <div className="mt-16 xl:mt-20 2xl:mt-24 relative">
+        <div className="relative mt-10 xl:mt-12 2xl:mt-16">
           {/* Static Centered Connecting Line (Desktop) */}
           <div className="hidden lg:block absolute top-[60px] left-0 w-full px-20 pointer-events-none -z-0">
              <div className="h-[1px] w-full border-t-2 border-dashed border-slate-200 dark:border-white/10 opacity-30" />

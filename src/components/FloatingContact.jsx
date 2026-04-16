@@ -37,7 +37,7 @@ const FloatingContact = () => {
 
       <a
         href={companyPhoneHref}
-        className={`fixed inset-x-0 bottom-0 z-40 flex items-center justify-center gap-2 border-t border-white/10 px-5 py-4 text-white shadow-[0_-10px_30px_rgba(15,23,42,0.28)] md:hidden ${stickyBarClass}`}
+        className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-center gap-2 border-t border-white/10 px-5 py-4 shadow-[0_-10px_30px_rgba(15,23,42,0.28)] md:hidden sticky-call-bar"
       >
         <Phone size={18} />
         <span className="text-[12px] font-black uppercase tracking-[0.2em]">{stickyCallLabel}</span>

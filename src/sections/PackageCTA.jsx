@@ -14,18 +14,18 @@ const packageServices = [
   'Team enablement support',
 ];
 
-const Pricing = () => {
+const PackageCTA = () => {
   return (
-    <section className="section section-theme-cyan overflow-hidden pt-20 pb-14 lg:pt-[6.4rem] lg:pb-10 xl:pt-[6.9rem] xl:pb-12 2xl:pt-[7.4rem] 2xl:pb-16" id="pricing">
+    <section className="section section-theme-cyan flex min-h-screen items-center overflow-hidden pb-8 pt-[115px] sm:pb-16 sm:pt-[140px] lg:pb-20 lg:pt-[160px] xl:pb-24 xl:pt-[180px] 2xl:pb-24 2xl:pt-[190px]" id="packages">
       <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-[120px]" />
 
-      <div className="container laptop-scale-pricing relative z-10 mx-auto px-6">
+      <div className="container laptop-scale-pricing relative z-10 mx-auto w-full px-6">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="relative overflow-hidden rounded-[3rem] border border-black/5 bg-[linear-gradient(145deg,rgba(255,255,255,0.98),rgba(248,250,252,0.94))] px-6 py-8 shadow-[0_28px_90px_rgba(15,23,42,0.1)] dark:border-white/8 dark:bg-[linear-gradient(145deg,rgba(8,18,28,0.98),rgba(10,20,34,0.94))] md:px-10 md:py-10 lg:min-h-[calc(100vh-8.6rem)] lg:px-10 lg:py-8 xl:min-h-[calc(100vh-9.1rem)] xl:px-12 xl:py-10 2xl:min-h-[calc(100vh-9.5rem)] 2xl:px-14 2xl:py-12"
+          className="relative overflow-hidden rounded-[2.2rem] sm:rounded-[3rem] border border-black/5 bg-[linear-gradient(145deg,rgba(255,255,255,0.98),rgba(248,250,252,0.94))] px-4 py-6 sm:px-6 sm:py-8 shadow-[0_28px_90px_rgba(15,23,42,0.1)] dark:border-white/8 dark:bg-[linear-gradient(145deg,rgba(10,8,26,0.98),rgba(18,16,36,0.94))] md:px-10 md:py-10 lg:px-10 lg:py-8 xl:px-12 xl:py-10 2xl:px-14 2xl:py-12"
         >
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(41,211,255,0.14),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(139,255,176,0.08),transparent_32%)]" />
           <div className="absolute -left-10 top-10 h-40 w-40 rounded-full bg-primary/10 blur-[70px]" />
@@ -33,20 +33,20 @@ const Pricing = () => {
             <Bot className="h-8 w-8 text-primary" />
           </div>
 
-          <div className="relative grid gap-8 lg:grid-cols-[1.06fr_.94fr] lg:items-center lg:gap-10 xl:gap-12">
+          <div className="relative grid gap-6 sm:gap-8 lg:grid-cols-[1.06fr_.94fr] lg:items-center lg:gap-10 xl:gap-12">
             <div>
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-5 py-2 text-[10px] font-black uppercase tracking-[0.24em] text-primary">
                 <Sparkles className="h-4 w-4" />
                 Tailored System Scope
               </div>
-              <h3 className="font-heading text-gradient mb-4 max-w-[16ch] text-[2.35rem] font-black uppercase leading-[0.9] tracking-tight md:text-[3.15rem] lg:max-w-[14ch] lg:text-[3rem] xl:max-w-[15ch] xl:text-[3.45rem] 2xl:text-[4rem]">
-                Automation packages built around your workflow.
+              <h3 className="font-heading text-gradient mb-3 max-w-[17ch] text-[1.85rem] font-black uppercase leading-[0.95] tracking-tight sm:text-[2.35rem] md:text-[3.15rem] lg:max-w-[14ch] lg:text-[3rem] xl:max-w-[15ch] xl:text-[3.45rem] 2xl:text-[4rem]">
+                Autonomous systems built for your team.
               </h3>
-              <p className="max-w-2xl text-base font-light leading-relaxed tracking-tight text-slate-600 dark:text-gray-400 md:text-lg lg:text-[0.95rem] xl:text-[1.02rem] 2xl:text-[1.08rem]">
-                AI agents, workflow orchestration, and rollout support mapped to your bottlenecks, team structure, and stack.
+              <p className="max-w-2xl text-[0.92rem] sm:text-base font-light leading-relaxed tracking-tight text-slate-600 dark:text-gray-400 md:text-lg lg:text-[0.95rem] xl:text-[1.02rem] 2xl:text-[1.08rem]">
+                Operations, workflow logic, and deployment packages to support your specific scaling bottlenecks.
               </p>
 
-              <div className="mt-8 grid gap-4 sm:grid-cols-3">
+              <div className="mt-5 sm:mt-8 grid gap-3 sm:gap-4 grid-cols-2 sm:grid-cols-3">
                 <div className="rounded-[1.8rem] border border-primary/10 bg-white/75 p-4 shadow-sm dark:bg-white/[0.03]">
                   <Bot className="mb-3 h-5 w-5 text-primary" />
                   <p className="text-xs font-black uppercase tracking-[0.18em] text-slate-900 dark:text-white">AI Agents</p>
@@ -61,7 +61,7 @@ const Pricing = () => {
                 </div>
               </div>
 
-              <div className="mt-8 grid gap-4 md:grid-cols-2">
+              <div className="mt-5 sm:mt-8 grid gap-2.5 sm:gap-4 grid-cols-1 sm:grid-cols-2">
                 {packageServices.map((service) => (
                   <div key={service} className="flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-slate-300">
                     <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary">
@@ -100,4 +100,4 @@ const Pricing = () => {
   );
 };
 
-export default Pricing;
+export default PackageCTA;

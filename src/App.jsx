@@ -10,7 +10,7 @@ import OurWork from './sections/OurWork';
 import Testimonials from './sections/Testimonials';
 import Contact from './sections/Contact';
 import CTA from './sections/CTA';
-import Pricing from './sections/Pricing';
+import PackageCTA from './sections/PackageCTA';
 import Footer from './sections/Footer';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -51,7 +51,10 @@ function App() {
       panels.forEach((panel, index) => {
         ScrollTrigger.create({
           trigger: panel,
-          start: () => (panel.offsetHeight < window.innerHeight ? 'top top' : 'bottom bottom'),
+          start: () => {
+            const pid = panel.dataset.panelId;
+            return (pid === 'our-work' || pid === 'contact' || pid === 'packages' || panel.offsetHeight <= window.innerHeight) ? 'top top' : 'bottom bottom';
+          },
           pin: true,
           pinSpacing: false,
           invalidateOnRefresh: true,
@@ -87,7 +90,7 @@ function App() {
     { id: 'services', node: <Services key="services" /> },
     { id: 'tech', node: <TechStack key="tech-stack" /> },
     { id: 'work', node: <Portfolio key="portfolio" /> },
-    { id: 'pricing', node: <Pricing key="pricing" /> },
+    { id: 'packages', node: <PackageCTA key="packages" /> },
     { id: 'process', node: <Process key="process" /> },
     { id: 'our-work', node: <OurWork key="our-work" /> },
     { id: 'testimonials', node: <Testimonials key="testimonials" /> },
@@ -115,7 +118,7 @@ function App() {
         {sections.map((section, index) => (
           <div
             key={section.id}
-            className="panel-shell w-full relative"
+            className={`w-full relative ${section.id === 'tech' ? '' : 'panel-shell'}`}
             style={{ zIndex: index + 1 }}
             data-panel-id={section.id}
           >

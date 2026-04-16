@@ -47,9 +47,9 @@ const OurWork = () => {
   }, [activeFrame]);
 
   return (
-    <section className="section section-theme-cyan overflow-hidden py-24 xl:py-28 2xl:py-32" id="our-work">
-      <div className="container laptop-scale-section mx-auto px-4 sm:px-6 xl:px-8 2xl:px-10">
-        <div className="mb-12 max-w-4xl xl:mb-14 2xl:mb-16">
+    <section className="section section-theme-cyan box-border flex min-h-screen items-center overflow-hidden pb-16 pt-[140px] lg:pt-[160px] xl:pb-20 xl:pt-[180px] 2xl:pb-24 2xl:pt-[190px]" id="our-work">
+      <div className="container laptop-scale-section mx-auto flex w-full flex-col justify-center px-4 sm:px-6 xl:px-8 2xl:px-10">
+        <div className="mb-10 max-w-4xl xl:mb-12 2xl:mb-14">
           <SectionHeading title="Our Work Systems" subtitle="Automation Snapshots" />
           <p className="mt-5 max-w-2xl text-base font-light leading-relaxed tracking-tight text-slate-600 dark:text-gray-400 md:text-lg">
             A continuous reel of workflow maps, system layers, and automation snapshots that reflect the kind of production AI infrastructure we build.

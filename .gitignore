@@ -4,3 +4,4 @@ dist/
 .env.*
 backend/
 /.next
+env.example.txt

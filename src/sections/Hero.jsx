@@ -64,7 +64,7 @@ const Hero = () => {
           disablePictureInPicture
           disableRemotePlayback
         />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.58)_0%,rgba(2,6,23,0.42)_28%,rgba(2,6,23,0.64)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.45)_0%,rgba(2,6,23,0.25)_28%,rgba(2,6,23,0.55)_100%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(41,211,255,0.12),transparent_38%),radial-gradient(circle_at_bottom_right,rgba(109,124,255,0.14),transparent_34%)]" />
       </div>
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:60px_60px] opacity-40 -z-10" />
@@ -77,12 +77,12 @@ const Hero = () => {
         <div className="hero-ai-beam" />
       </div>
 
-      <div className="container laptop-scale-hero mx-auto grid w-full grid-cols-1 items-center gap-10 px-5 sm:gap-12 sm:px-6 lg:grid-cols-12 lg:gap-0 lg:px-2 xl:gap-1 xl:px-3 2xl:gap-12 z-10">
+      <div className="container mx-auto grid w-full grid-cols-1 items-center gap-10 px-6 sm:gap-12 md:px-8 lg:grid-cols-12 lg:gap-0 xl:gap-1 xl:px-12 z-10">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col items-start text-left lg:col-span-6 lg:pr-3 xl:pr-5 2xl:col-span-7"
+          className="laptop-scale-hero-left flex flex-col items-start text-left lg:col-span-6 2xl:col-span-7"
         >
           <div className="pt-12 sm:pt-0">
             <motion.div
@@ -151,7 +151,7 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        <div className="relative w-full lg:col-span-6 lg:max-w-[39rem] lg:justify-self-end xl:max-w-[41rem] xl:justify-self-end 2xl:col-span-5 2xl:max-w-[32rem] 2xl:justify-self-end">
+        <div className="laptop-scale-hero-right relative w-full lg:col-span-6 lg:max-w-[39rem] lg:justify-self-end xl:max-w-[41rem] xl:justify-self-end 2xl:col-span-5 2xl:max-w-[32rem] 2xl:justify-self-end">
           <div className="absolute -inset-10 -z-10 rounded-full bg-primary/20 blur-[100px] opacity-20" />
           <ServiceForm forceDark />
         </div>

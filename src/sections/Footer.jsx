@@ -17,8 +17,8 @@ const Footer = () => {
   };
 
   return (
-    <footer className="section-theme-mint flex min-h-screen items-center overflow-hidden border-t border-black/5 pb-10 pt-16 text-slate-900 dark:border-white/5 dark:text-light xl:pb-11 xl:pt-[4.5rem] 2xl:pb-12 2xl:pt-20">
-      <div className="container laptop-scale-section relative z-10 mx-auto px-6">
+    <footer className="section-theme-mint flex min-h-screen items-center justify-center overflow-hidden border-t border-black/5 pb-10 pt-16 text-slate-900 dark:border-white/5 dark:text-light xl:pb-11 xl:pt-[4.5rem] 2xl:pb-12 2xl:pt-20">
+      <div className="container laptop-scale-section relative z-10 mx-auto flex w-full flex-col justify-center px-6">
         <div className="mb-16 flex flex-col items-start justify-between gap-12 border-b border-black/5 pb-16 dark:border-white/5 lg:flex-row xl:mb-[4.5rem] xl:gap-14 xl:pb-[4.5rem] 2xl:mb-20 2xl:gap-16 2xl:pb-20">
           <div className="w-full max-w-md">
             <a href="#" onClick={(e) => handleScrollTo(e, '#')} className="group mb-10 flex items-center">

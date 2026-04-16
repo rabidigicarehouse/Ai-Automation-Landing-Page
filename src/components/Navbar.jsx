@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 import Button from './Button';
 import ThemeToggle from './ThemeToggle';
 import { handleScrollTo } from '../utils/scrollTo';
@@ -9,14 +10,17 @@ import { assetSrc } from '../utils/assetSrc';
 
 const navLinks = [
   { name: 'Services', href: '#services' },
-  { name: 'Work', href: '#work' },
+  { name: 'Packages', href: '#packages' },
   { name: 'Process', href: '#process' },
+  { name: 'Our Work', href: '#our-work' },
   { name: 'Testimonials', href: '#testimonials' },
-  { name: 'Pricing', href: '#pricing' },
   { name: 'Contact', href: '#contact' },
+  { name: 'Blog', href: '/blog' },
 ];
 
 const Navbar = () => {
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -42,20 +46,31 @@ const Navbar = () => {
     return () => observer.disconnect();
   }, []);
 
-  const headerOnHero = !isScrolled;
+  const headerOnHero = isHomePage && !isScrolled;
+  const isBlogPage = pathname.startsWith('/blog');
   const desktopNavTextClass = headerOnHero || isDarkMode ? 'text-white' : 'text-slate-700';
   const dividerClass = headerOnHero ? 'border-white/12' : 'border-black/10 dark:border-white/10';
+
+  const shouldBeSolid = isScrolled || isBlogPage;
 
   return (
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-700 ${
-        isScrolled
-          ? 'border-b border-black/5 bg-white/80 py-3 shadow-xl backdrop-blur-3xl dark:border-white/5 dark:bg-dark-bg/80 lg:py-2.25 xl:py-2.75'
-          : 'bg-transparent py-6 lg:py-3.25 xl:py-4.25 2xl:py-8'
+        shouldBeSolid
+          ? 'border-b border-black/5 bg-white/80 py-3 shadow-xl backdrop-blur-3xl dark:border-white/5 dark:bg-dark-bg/80 lg:py-2 xl:py-2.5 2xl:py-4'
+          : 'bg-transparent py-6 lg:py-3 xl:py-3.5 2xl:py-8'
       }`}
     >
       <div className="container laptop-scale-navbar mx-auto flex items-center justify-between px-5 sm:px-6 lg:pl-10 lg:pr-6 xl:pl-12 xl:pr-7 2xl:px-6">
-        <a href="#" onClick={(e) => handleScrollTo(e, '#')} className="group relative flex items-center lg:ml-2 xl:ml-3">
+        <a 
+          href="/" 
+          onClick={(e) => {
+            if (pathname === '/') {
+              handleScrollTo(e, '#');
+            }
+          }} 
+          className="group relative flex items-center lg:ml-2 xl:ml-3"
+        >
           <img src={assetSrc(logo)} alt="AI Automation" className="h-14 w-auto max-w-[220px] object-contain object-left transition-all duration-700 group-hover:scale-105 sm:h-16 md:h-[4.5rem] lg:h-[2.8rem] lg:max-w-[200px] xl:h-[3.2rem] xl:max-w-[240px] 2xl:h-[3.8rem] 2xl:max-w-[280px]" />
         </a>
 
@@ -64,7 +79,10 @@ const Navbar = () => {
             <a
               key={link.name}
               href={link.href}
-              onClick={(e) => handleScrollTo(e, link.href)}
+              onClick={(e) => {
+                if (link.href.startsWith('/')) return;
+                handleScrollTo(e, link.href);
+              }}
               className={`group relative overflow-hidden text-[7px] font-black uppercase tracking-[0.13em] transition-all duration-500 hover:text-primary dark:hover:text-primary xl:text-[8px] xl:tracking-[0.17em] 2xl:text-[10px] 2xl:tracking-[0.2em] ${desktopNavTextClass}`}
             >
               <span className="block transition-transform duration-500 group-hover:-translate-y-full">{link.name}</span>
@@ -124,6 +142,10 @@ const Navbar = () => {
                     transition={{ delay: i * 0.1 + 0.2 }}
                     className="group flex items-center justify-between rounded-[1.4rem] border border-black/5 bg-slate-50/90 px-5 py-4 text-[2.15rem] font-black uppercase tracking-tighter text-slate-950 transition-all hover:border-primary/20 hover:bg-primary/5 hover:text-primary dark:border-white/8 dark:bg-white/[0.03] dark:text-white dark:hover:text-primary"
                     onClick={(e) => {
+                      if (link.href.startsWith('/')) {
+                        setMobileMenuOpen(false);
+                        return;
+                      }
                       handleScrollTo(e, link.href);
                       setMobileMenuOpen(false);
                     }}

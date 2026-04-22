@@ -17,8 +17,8 @@ import {
 export const servicesData = [
   {
     icon: <Bot className="w-8 h-8 text-primary" />,
-    title: 'AI Copilots',
-    desc: 'Embedded assistants that answer questions, automate work, and guide teams in real time.',
+    title: 'AI Copilots Automation Services',
+    desc: 'Experience all-in-one productivity with our AI automation services, designed to restructure your workflows, enhance decision-making, and optimize efficiency across various business operations. Transform your processes today!',
     details: 'We design and deploy AI copilots across support, sales, operations, and internal knowledge systems. Every copilot is tuned around your workflows, brand voice, guardrails, and measurable business outcomes.',
     applicability: 'Best for companies that want immediate productivity gains, faster response times, and an intelligent layer over existing processes.',
     features: ['Knowledge-Grounded Answers', 'Role-Based Prompting', 'Escalation Logic', 'Channel Deployment'],
@@ -31,8 +31,8 @@ export const servicesData = [
   },
   {
     icon: <Zap className="w-8 h-8 text-secondary" />,
-    title: 'Workflow Automation',
-    desc: 'Cross-tool automations that eliminate repetitive manual work and move data without delays.',
+    title: 'Workflow Automation Services',
+    desc: 'Get efficiency with our workflow automation services. Reorganize processes and enhance productivity using advanced AI automation services customized to your business needs and goals.',
     details: 'We build operational automations that connect CRMs, inboxes, forms, spreadsheets, databases, and internal systems into reliable execution pipelines. The result is fewer handoffs, fewer mistakes, and faster throughput.',
     applicability: 'Best for service teams, operations leaders, and growing businesses buried under manual admin and fragmented processes.',
     features: ['Multi-Step Workflows', 'Conditional Logic', 'Error Recovery', 'Approvals & Routing'],
@@ -45,8 +45,8 @@ export const servicesData = [
   },
   {
     icon: <MessageSquare className="w-8 h-8 text-teal" />,
-    title: 'LLM Agents',
-    desc: 'AI chat and voice agents that qualify leads, resolve requests, and keep revenue moving.',
+    title: 'LLM Agents Automation Services',
+    desc: 'Our AI automation services modernize processes by qualifying leads, resolving requests efficiently, and ensuring that revenue continues to flow smoothly for businesses.',
     details: 'From inbound website agents to voice-first appointment flows, we create conversational systems that sound polished, act fast, and keep context across the full customer journey.',
     applicability: 'Best for lead generation, support deflection, appointment booking, and customer success teams that need 24/7 intelligent front lines.',
     features: ['Lead Qualification', 'Voice & Chat Flows', 'CRM Sync', 'Live Transfer'],
@@ -59,8 +59,8 @@ export const servicesData = [
   },
   {
     icon: <Database className="w-8 h-8 text-cyan-400" />,
-    title: 'Data Pipelines',
-    desc: 'Clean, automated data movement from intake to reporting so decisions happen faster.',
+    title: 'Data Pipelines Automation Services',
+    desc: 'Transform data movement from intake to reporting with AI automation services, enabling clean, efficient processes that accelerate decision-making for faster and better outcomes.',
     details: 'We engineer pipelines that collect, clean, enrich, and route information across your business systems. No more broken exports, duplicate records, or reports that lag behind reality.',
     applicability: 'Best for operators who need reliable dashboards, cleaner data, and less spreadsheet firefighting.',
     features: ['ETL Workflows', 'Data Validation', 'Sync Monitoring', 'Live Dashboards'],
@@ -73,8 +73,8 @@ export const servicesData = [
   },
   {
     icon: <ShieldCheck className="w-8 h-8 text-emerald-400" />,
-    title: 'AI Governance',
-    desc: 'Guardrails, permissions, and QA systems that keep automation secure and trustworthy.',
+    title: 'AI Governance Automation Services',
+    desc: 'AI automation services require guardrails, permissions, and QA systems to ensure they remain secure, trustworthy, and reliable in their operations and outcomes.',
     details: 'We build the control layer around your AI stack: approval loops, fallback logic, logging, permissions, and testing frameworks that let teams automate confidently at scale.',
     applicability: 'Best for organizations deploying AI across sensitive workflows, regulated data, or multi-team environments.',
     features: ['Access Controls', 'Audit Trails', 'Fallback Paths', 'Safety Reviews'],
@@ -87,8 +87,8 @@ export const servicesData = [
   },
   {
     icon: <BarChart3 className="w-8 h-8 text-lime-400" />,
-    title: 'Revenue Automation',
-    desc: 'Automated systems for capture, qualification, follow-up, and conversion acceleration.',
+    title: 'Revenue Automation Services',
+    desc: 'AI automation services streamline the processes of capturing leads, qualifying prospects, following up, and accelerating conversions for improved efficiency and effectiveness in business operations.',
     details: 'We connect your forms, campaigns, inboxes, calendars, and CRM to create automated revenue operations. Leads get routed, nurtured, scored, and surfaced to your team without manual chasing.',
     applicability: 'Best for agencies, B2B firms, and service businesses that want faster response times and stronger conversion infrastructure.',
     features: ['Lead Scoring', 'Follow-Up Sequences', 'Sales Alerts', 'Pipeline Routing'],
@@ -101,8 +101,8 @@ export const servicesData = [
   },
   {
     icon: <Plug className="w-8 h-8 text-orange-400" />,
-    title: 'System Integrations',
-    desc: 'Connected ecosystems that make your apps, tools, and teams behave like one platform.',
+    title: 'System Integrations Automation Services',
+    desc: 'Seamlessly connected ecosystems enable your applications, tools, and teams to function as a unified platform, enhanced by AI automation services for improved efficiency and collaboration.',
     details: 'We remove tool fragmentation by building reliable integrations across your stack. The outcome is cleaner handoffs, faster coordination, and processes that feel seamless instead of stitched together.',
     applicability: 'Best for businesses that already have tools in place but need them to act as one operating system.',
     features: ['API Integrations', 'Webhook Bridges', 'Bi-Directional Sync', 'Platform Mapping'],
@@ -115,8 +115,8 @@ export const servicesData = [
   },
   {
     icon: <Eye className="w-8 h-8 text-violet-400" />,
-    title: 'Agent Operations',
-    desc: 'Multi-agent systems that handle tasks, monitor events, and trigger smart execution loops.',
+    title: 'Agent Operations Automation Services',
+    desc: 'Multi-agent systems manage tasks, monitor events, and initiate smart execution loops, enhancing efficiency through seamless AI automation services for improved operational performance.',
     details: 'We architect AI agent frameworks that watch for signals, reason through tasks, and execute against connected tools. These systems help teams move from isolated prompts to real autonomous operations.',
     applicability: 'Best for advanced teams ready to operationalize AI beyond chat interfaces into full workflow ownership.',
     features: ['Event-Driven Agents', 'Task Delegation', 'Tool Invocation', 'Agent Monitoring'],

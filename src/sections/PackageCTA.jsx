@@ -37,13 +37,13 @@ const PackageCTA = () => {
             <div>
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-5 py-2 text-[10px] font-black uppercase tracking-[0.24em] text-primary">
                 <Sparkles className="h-4 w-4" />
-                Tailored System Scope
+                Custom System Scope
               </div>
               <h3 className="font-heading text-gradient mb-3 max-w-[17ch] text-[1.85rem] font-black uppercase leading-[0.95] tracking-tight sm:text-[2.35rem] md:text-[3.15rem] lg:max-w-[14ch] lg:text-[3rem] xl:max-w-[15ch] xl:text-[3.45rem] 2xl:text-[4rem]">
-                Autonomous systems built for your team.
+                AI automation service packages customized to fit your workflow.
               </h3>
               <p className="max-w-2xl text-[0.92rem] sm:text-base font-light leading-relaxed tracking-tight text-slate-600 dark:text-gray-400 md:text-lg lg:text-[0.95rem] xl:text-[1.02rem] 2xl:text-[1.08rem]">
-                Operations, workflow logic, and deployment packages to support your specific scaling bottlenecks.
+                AI agents, workflow orchestration, and rollout support are mapped to your bottlenecks, team structure, and stack.
               </p>
 
               <div className="mt-5 sm:mt-8 grid gap-3 sm:gap-4 grid-cols-2 sm:grid-cols-3">
@@ -79,9 +79,9 @@ const PackageCTA = () => {
                   Best Fit For
                 </p>
                 <div className="mb-8 grid gap-4 text-sm font-medium text-slate-700 dark:text-slate-300">
-                  <div>Teams replacing manual handoffs with reliable automation</div>
-                  <div>Operators who need AI copilots embedded into real workflows</div>
-                  <div>Businesses rolling out custom systems instead of generic tools</div>
+                  <div>Teams with workflow bottlenecks, fragmented handoffs, or repetitive manual operations</div>
+                  <div>Companies needing AI agents, workflow design, and CRM-connected automation support</div>
+                  <div>Operators who want a custom automation package built around their real stack and rollout needs</div>
                 </div>
                 <Button
                   variant="primary"

@@ -101,10 +101,10 @@ const Hero = () => {
               transition={{ duration: 0.9, delay: 0.08 }}
               className="mb-5 max-w-full text-[2.95rem] font-black uppercase leading-[0.92] tracking-tight text-white sm:mb-8 sm:text-6xl sm:leading-[0.9] md:text-8xl lg:text-[3.15rem] xl:text-[3.55rem] 2xl:text-8xl"
             >
-              <span className="block">Building</span>
-              <span className="block text-gradient break-words">Autonomous</span>
-              <span className="mt-2 inline-block max-w-full rounded-2xl bg-primary px-3.5 py-2 text-white shadow-2xl shadow-primary/20 break-words sm:px-6">
-                Operations.
+              <span className="block">Be Autonomous</span>
+              <span className="block text-gradient break-words">With Our AI</span>
+              <span className="mt-2 inline-block max-w-full rounded-2xl bg-primary px-3.5 py-2 text-[1.5rem] leading-none text-white shadow-2xl shadow-primary/20 break-words sm:px-6 sm:text-[2rem] md:text-[2.4rem] lg:text-[1.9rem] xl:text-[2.1rem] 2xl:text-[2.7rem]">
+                Automation Services
               </span>
             </motion.h1>
 
@@ -114,7 +114,7 @@ const Hero = () => {
               transition={{ duration: 0.9, delay: 0.16 }}
               className="mb-5 max-w-xl text-base font-light leading-relaxed tracking-tight text-white sm:mb-10 sm:text-lg lg:max-w-[22rem] lg:text-[0.86rem] xl:mb-7 xl:max-w-[24rem] xl:text-[0.92rem] 2xl:max-w-xl 2xl:text-xl"
             >
-              The AI Syndicates build AI systems that automate, analyze, and execute work across your business without adding complexity.
+              The AI Syndicates provides the best AI automation services and builds AI systems that automate, analyze, and execute work across your business without adding complexity.
             </motion.p>
 
             <motion.div
@@ -129,7 +129,7 @@ const Hero = () => {
                 </Button>
               </a>
               <a href="#contact" onClick={(e) => handleScrollTo(e, '#contact')} className="block w-full sm:w-auto">
-                <Button variant="outline" className="w-full rounded-full border-white/20 bg-white/[0.02] px-10 py-5 text-sm font-black tracking-widest text-white uppercase hover:border-primary hover:text-primary sm:w-auto">
+                <Button variant="outline" className="w-full rounded-full border-white/20 bg-white/[0.02] px-10 py-5 text-sm font-black tracking-widest text-white uppercase transition-all duration-300 hover:border-primary hover:bg-primary/10 hover:text-primary dark:hover:border-primary dark:hover:bg-primary/10 dark:hover:text-primary sm:w-auto">
                   Book Strategy
                 </Button>
               </a>

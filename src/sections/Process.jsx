@@ -4,9 +4,9 @@ import { Search, Zap, Eye, Bot, ShieldCheck } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading';
 
 const steps = [
-  { icon: <Search />, title: "Audit", desc: "Mapping current tools, bottlenecks, handoffs, and repetitive work across your operation." },
-  { icon: <Zap />, title: "System Design", desc: "Architecting the ideal automation flow, agent logic, and integration pathways." },
-  { icon: <Eye />, title: "Data Mapping", desc: "Structuring inputs, outputs, routing rules, and observability across the stack." },
+  { icon: <Search />, title: "Audit", desc: "Mapping out your operation's current tools, bottlenecks, handoffs, and repetitive tasks." },
+  { icon: <Zap />, title: "System Design", desc: "Designing the optimal automation process, agent behavior, and integration routes." },
+  { icon: <Eye />, title: "Data Mapping", desc: "Organizing inputs, outputs, routing rules, and observability throughout the entire stack." },
   { icon: <Bot />, title: "Agent Build", desc: "Deploying copilots, automations, and decision loops that execute real work." },
   { icon: <ShieldCheck />, title: "Optimize", desc: "Hardening guardrails, QA, analytics, and ongoing iteration for production scale." }
 ];

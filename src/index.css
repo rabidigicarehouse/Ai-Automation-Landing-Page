@@ -158,18 +158,31 @@
     transform-origin: right top;
   }
 
+  .panel-shell[data-panel-id="packages"] > section,
+  .panel-shell[data-panel-id="our-work"] > section,
+  .panel-shell[data-panel-id="contact"] > section,
+  .panel-shell[data-panel-id="packages"] > footer,
+  .panel-shell[data-panel-id="our-work"] > footer,
+  .panel-shell[data-panel-id="contact"] > footer {
+    min-height: 100svh;
+    padding-top: 100px !important;
+    padding-bottom: 24px !important;
+    display: flex;
+    align-items: center;
+  }
+
   .panel-shell[data-panel-id="packages"] .laptop-scale-pricing {
-    transform: translateY(-56px) scale(0.82);
+    transform: scale(0.82);
     transform-origin: top center;
   }
 
   .panel-shell[data-panel-id="our-work"] .laptop-scale-section {
-    transform: translateY(-56px) scale(0.82);
+    transform: scale(0.82);
     transform-origin: top center;
   }
 
   .panel-shell[data-panel-id="contact"] .laptop-scale-section {
-    transform: translateY(-56px) scale(0.82);
+    transform: scale(0.82);
     transform-origin: top center;
   }
 }

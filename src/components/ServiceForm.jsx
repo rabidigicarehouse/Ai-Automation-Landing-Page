@@ -141,14 +141,14 @@ export default function ServiceForm({ initialService, isMini = false, forceDark 
     : 'px-4 sm:px-5 py-3.5 sm:py-4 text-sm lg:px-3.5 lg:py-[0.6875rem] lg:text-[12.5px] xl:px-4 xl:py-3 xl:text-[13px]';
   const shellClasses = forceDark
     ? 'border-primary/25 bg-[#0d1628]/90 shadow-[0_50px_100px_rgba(0,0,0,0.45)]'
-    : 'border-slate-200 bg-slate-50 shadow-sm dark:border-white/10 dark:bg-white/5';
+    : 'border-slate-200 bg-slate-50 shadow-sm dark:border-primary/25 dark:bg-[#0d1628]/90 dark:shadow-[0_50px_100px_rgba(0,0,0,0.45)]';
   const titleClasses = forceDark ? 'text-white' : 'text-slate-900 dark:text-white';
   const inputClasses = forceDark
     ? 'border border-white/10 bg-white/5 text-white placeholder:text-white/35'
-    : 'border border-slate-200 bg-white text-slate-900 dark:border-white/10 dark:bg-dark-bg/50 dark:text-white';
+    : 'border border-slate-200 bg-white text-slate-900 dark:border-white/10 dark:bg-white/5 dark:text-white dark:placeholder:text-white/35';
   const recaptchaWrapClasses = forceDark
     ? 'border-white/10 bg-[#091120]/90'
-    : 'border-slate-200 bg-white shadow-sm dark:border-white/10 dark:bg-dark-bg/60';
+    : 'border-slate-200 bg-white shadow-sm dark:border-white/10 dark:bg-[#091120]/90';
 
   return (
     <div className={`${isMini ? 'h-full rounded-[1.75rem] p-4 md:rounded-[2rem] md:p-5 lg:p-4 xl:p-5' : 'rounded-[1.75rem] p-5 sm:rounded-[2rem] sm:p-6 md:rounded-[2.5rem] md:p-10 lg:p-6 xl:p-7'} group relative overflow-visible border ${shellClasses}`}>

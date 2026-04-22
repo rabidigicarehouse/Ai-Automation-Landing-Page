@@ -23,7 +23,7 @@ const Hero = () => {
     const syncPlayback = () => {
       video.defaultPlaybackRate = 2;
       video.playbackRate = 2;
-      void video.play().catch(() => {});
+      void video.play().catch(() => { });
     };
 
     const resumePlayback = () => {
@@ -64,7 +64,7 @@ const Hero = () => {
           disablePictureInPicture
           disableRemotePlayback
         />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.45)_0%,rgba(2,6,23,0.25)_28%,rgba(2,6,23,0.55)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.58)_0%,rgba(2,6,23,0.42)_28%,rgba(2,6,23,0.64)_100%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(41,211,255,0.12),transparent_38%),radial-gradient(circle_at_bottom_right,rgba(109,124,255,0.14),transparent_34%)]" />
       </div>
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:60px_60px] opacity-40 -z-10" />
@@ -77,12 +77,12 @@ const Hero = () => {
         <div className="hero-ai-beam" />
       </div>
 
-      <div className="container mx-auto grid w-full grid-cols-1 items-center gap-10 px-6 sm:gap-12 md:px-8 lg:grid-cols-12 lg:gap-0 xl:gap-1 xl:px-12 z-10">
+      <div className="container laptop-scale-hero mx-auto grid w-full grid-cols-1 items-center gap-10 px-5 sm:gap-12 sm:px-6 lg:grid-cols-12 lg:gap-0 lg:pl-10 lg:pr-6 xl:gap-1 xl:pl-12 xl:pr-7 2xl:gap-12 2xl:px-6 z-10">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="laptop-scale-hero-left flex flex-col items-start text-left lg:col-span-6 2xl:col-span-7"
+          className="flex flex-col items-start text-left lg:col-span-6 lg:ml-2 lg:pr-3 xl:ml-3 xl:pr-5 2xl:col-span-7"
         >
           <div className="pt-12 sm:pt-0">
             <motion.div
@@ -101,10 +101,10 @@ const Hero = () => {
               transition={{ duration: 0.9, delay: 0.08 }}
               className="mb-5 max-w-full text-[2.95rem] font-black uppercase leading-[0.92] tracking-tight text-white sm:mb-8 sm:text-6xl sm:leading-[0.9] md:text-8xl lg:text-[3.15rem] xl:text-[3.55rem] 2xl:text-8xl"
             >
-              <span className="block">Be Autonomous</span>
-              <span className="block text-gradient break-words">With Our AI</span>
-              <span className="mt-2 inline-block max-w-full rounded-2xl bg-primary px-3.5 py-2 text-[1.5rem] leading-none text-white shadow-2xl shadow-primary/20 break-words sm:px-6 sm:text-[2rem] md:text-[2.4rem] lg:text-[1.9rem] xl:text-[2.1rem] 2xl:text-[2.7rem]">
-                Automation Services
+              <span className="block">Building</span>
+              <span className="block text-gradient break-words">Autonomous</span>
+              <span className="mt-2 inline-block max-w-full rounded-2xl bg-primary px-3.5 py-2 text-white shadow-2xl shadow-primary/20 break-words sm:px-6">
+                Operations.
               </span>
             </motion.h1>
 
@@ -114,7 +114,7 @@ const Hero = () => {
               transition={{ duration: 0.9, delay: 0.16 }}
               className="mb-5 max-w-xl text-base font-light leading-relaxed tracking-tight text-white sm:mb-10 sm:text-lg lg:max-w-[22rem] lg:text-[0.86rem] xl:mb-7 xl:max-w-[24rem] xl:text-[0.92rem] 2xl:max-w-xl 2xl:text-xl"
             >
-              The AI Syndicates provides the best AI automation services and builds AI systems that automate, analyze, and execute work across your business without adding complexity.
+              The AI Syndicates build AI systems that automate, analyze, and execute work across your business without adding complexity.
             </motion.p>
 
             <motion.div
@@ -129,7 +129,7 @@ const Hero = () => {
                 </Button>
               </a>
               <a href="#contact" onClick={(e) => handleScrollTo(e, '#contact')} className="block w-full sm:w-auto">
-                <Button variant="outline" className="w-full rounded-full border-white/20 bg-white/[0.02] px-10 py-5 text-sm font-black tracking-widest text-white uppercase transition-all duration-300 hover:border-primary hover:bg-primary/10 hover:text-primary dark:hover:border-primary dark:hover:bg-primary/10 dark:hover:text-primary sm:w-auto">
+                <Button variant="outline" className="w-full rounded-full border-white/20 bg-white/[0.02] px-10 py-5 text-sm font-black tracking-widest text-white uppercase hover:border-primary hover:text-primary sm:w-auto">
                   Book Strategy
                 </Button>
               </a>
@@ -151,7 +151,7 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        <div className="laptop-scale-hero-right relative w-full lg:col-span-6 lg:max-w-[39rem] lg:justify-self-end xl:max-w-[41rem] xl:justify-self-end 2xl:col-span-5 2xl:max-w-[32rem] 2xl:justify-self-end">
+        <div className="relative w-full lg:col-span-6 lg:max-w-[39rem] lg:justify-self-end xl:max-w-[41rem] xl:justify-self-end 2xl:col-span-5 2xl:max-w-[32rem] 2xl:justify-self-end">
           <div className="absolute -inset-10 -z-10 rounded-full bg-primary/20 blur-[100px] opacity-20" />
           <ServiceForm forceDark />
         </div>

@@ -139,7 +139,7 @@ const Services = () => {
                            <button onClick={next} className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white/80 text-slate-700 shadow-lg dark:border-white/10 dark:bg-white/5 dark:text-white">
                               <MoveRight className="h-4 w-4" />
                            </button>
-                           <button onClick={() => openService(servicesData[current])} className="group flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2.5 text-[0.9rem] font-black uppercase tracking-tight text-slate-950 shadow-xl">
+                           <button onClick={() => openService(servicesData[current])} className="group flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2.5 text-[0.9rem] font-black uppercase tracking-tight text-slate-950 shadow-xl dark:text-primary">
                               <span>Go Deeper</span>
                               <ArrowUpRight className="h-4 w-4" />
                            </button>

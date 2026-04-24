@@ -91,7 +91,7 @@ function App() {
           trigger: panel,
           start: () => {
             const pid = panel.dataset.panelId;
-            return (pid === 'our-work' || pid === 'contact' || pid === 'packages' || panel.offsetHeight <= window.innerHeight) ? 'top top' : 'bottom bottom';
+            return (pid === 'footer' || pid === 'our-work' || pid === 'contact' || pid === 'packages' || panel.offsetHeight <= window.innerHeight) ? 'top top' : 'bottom bottom';
           },
           pin: true,
           pinSpacing: false,

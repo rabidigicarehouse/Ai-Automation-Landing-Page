@@ -16,7 +16,7 @@ const packageServices = [
 
 const PackageCTA = () => {
   return (
-    <section className="section section-theme-cyan flex min-h-screen items-center overflow-hidden pb-8 pt-[115px] sm:pb-16 sm:pt-[140px] lg:pb-20 lg:pt-[160px] xl:pb-24 xl:pt-[180px] 2xl:pb-24 2xl:pt-[190px]" id="packages">
+    <section className="section section-theme-cyan flex min-h-screen items-center overflow-hidden pb-6 pt-[80px] sm:pb-16 sm:pt-[120px] lg:pb-20 lg:pt-[160px] xl:pb-24 xl:pt-[180px] 2xl:pb-24 2xl:pt-[190px]" id="packages">
       <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-[120px]" />
 
       <div className="container laptop-scale-pricing relative z-10 mx-auto w-full px-6">

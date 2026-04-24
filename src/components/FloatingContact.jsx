@@ -28,9 +28,9 @@ const FloatingContact = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={label}
-            className="flex h-14 w-14 items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 md:h-12 md:w-12 xl:h-14 xl:w-14"
+            className="flex h-14 w-14 items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 md:h-12 md:w-12 xl:h-14 xl:w-14 max-[1280px]:!h-9 max-[1280px]:!w-9"
           >
-            <img src={image} alt={label} className="h-12 w-12 rounded-full object-cover shadow-lg md:h-10 md:w-10 xl:h-12 xl:w-12" />
+            <img src={image} alt={label} className="h-12 w-12 rounded-full object-cover shadow-lg md:h-10 md:w-10 xl:h-12 xl:w-12 max-[1280px]:!h-7 max-[1280px]:!w-7" />
           </a>
         ))}
       </div>

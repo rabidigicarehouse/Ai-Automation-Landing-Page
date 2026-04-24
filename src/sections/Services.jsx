@@ -42,10 +42,10 @@ const Services = () => {
     .trim();
   const isLongTitle = displayTitle.length > 14;
   const cardTitleClass = isLongTitle
-    ? 'text-[1.6rem] sm:text-[2.15rem] md:text-[2.45rem] lg:text-[2.2rem] xl:text-[2.45rem]'
+    ? 'text-[1.35rem] sm:text-[1.85rem] md:text-[2.15rem] lg:text-[1.8rem] xl:text-[2rem]'
     : 'text-[2.1rem] md:text-[2.8rem] lg:text-[2.45rem] xl:text-[2.7rem]';
   const protocolTitleClass = isLongTitle
-    ? 'text-[1.95rem] sm:text-[3rem] md:text-[4.35rem] lg:text-[4.1rem] xl:text-[4.45rem]'
+    ? 'text-[1.75rem] sm:text-[2.45rem] md:text-[3.6rem] lg:text-[3.3rem] xl:text-[3.7rem]'
     : 'text-[2.45rem] sm:text-[3.9rem] md:text-[5.6rem] lg:text-[5rem] xl:text-[5.45rem]';
 
   return (
@@ -77,7 +77,7 @@ const Services = () => {
                            {React.cloneElement(servicesData[current].icon, { size: 56 })}
                         </div>
                         
-                        <h3 className={`relative z-10 mx-auto w-full max-w-[10.5ch] text-center font-black font-heading tracking-tighter uppercase italic leading-[0.9] text-slate-950 transition-transform duration-700 group-hover:translate-y-[-10px] dark:text-white [word-break:keep-all] break-normal ${cardTitleClass}`}>
+                        <h3 className={`relative z-10 mx-auto w-full max-w-[13ch] text-center font-black font-heading tracking-tighter uppercase italic leading-[0.92] text-slate-950 transition-transform duration-700 group-hover:translate-y-[-10px] dark:text-white [word-break:keep-all] break-normal ${cardTitleClass}`}>
                            {displayTitle}
                         </h3>
 

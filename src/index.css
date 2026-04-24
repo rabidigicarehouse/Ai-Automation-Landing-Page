@@ -6,20 +6,13 @@
   .glass-card {
     @apply dark:bg-[#0b1224]/70 bg-white/95 backdrop-blur-lg dark:border-cyan-400/[0.12] border-slate-200 shadow-[0_8px_32px_rgba(0,0,0,0.05)] dark:shadow-[0_20px_60px_rgba(3,8,20,0.45)];
   }
+
   .glass-nav {
     @apply dark:bg-[#040815]/88 bg-white/90 backdrop-blur-md border-b dark:border-cyan-400/[0.08] border-slate-200;
   }
-  
+
   .section {
     @apply py-[50px] relative w-full;
-  }
-
-  .sticky-call-bar {
-    @apply bg-gradient-to-r from-[#29d3ff] to-[#6d7cff] text-white;
-  }
-
-  .dark .sticky-call-bar {
-    @apply bg-gradient-to-r from-[#29d3ff] to-[#6d7cff] text-white;
   }
 
   .text-gradient {
@@ -54,139 +47,131 @@
       linear-gradient(135deg, rgba(255, 255, 255, 0.97), rgba(244, 255, 249, 0.98) 54%, rgba(239, 249, 255, 0.94));
   }
 
-@media (min-width: 768px) and (max-width: 990px) {
-  .section[id] {
-    padding-top: 110px !important;
-    padding-bottom: 20px !important;
-  }
-  .laptop-scale-navbar { position: static; width: 100%; transform: none; transform-origin: initial; will-change: auto; }
-  .laptop-scale-section { position: relative; width: 100%; transform: scale(0.75); transform-origin: top center; will-change: transform; }
-  .laptop-scale-hero-left { position: relative; width: 100%; transform: scale(0.75); transform-origin: left center; will-change: transform; }
-  .laptop-scale-hero-right { position: relative; width: 100%; transform: scale(0.75); transform-origin: right center; will-change: transform; }
-  .laptop-scale-services { position: relative; width: 100%; transform: scale(0.75); transform-origin: top center; will-change: transform; }
-  .laptop-scale-pricing { position: relative; width: 100%; transform: scale(0.75); transform-origin: top center; will-change: transform; }
-}
+  @media (min-width: 1025px) and (max-width: 1366px) {
+    .laptop-scale-navbar {
+      position: static;
+      width: 100%;
+      transform: none;
+      transform-origin: initial;
+      will-change: auto;
+    }
 
-@media (min-width: 991px) and (max-width: 1200px) {
-  .section[id] {
-    padding-top: 110px !important;
-    padding-bottom: 20px !important;
-  }
-  .laptop-scale-navbar { position: static; width: 100%; transform: none; transform-origin: initial; will-change: auto; }
-  .laptop-scale-section { position: relative; width: 100%; transform: scale(0.75); transform-origin: top center; will-change: transform; }
-  .laptop-scale-hero-left { position: relative; width: 100%; transform: scale(0.68); transform-origin: left center; will-change: transform; }
-  .laptop-scale-hero-right { position: relative; width: 100%; transform: scale(0.68); transform-origin: right center; will-change: transform; }
-  .laptop-scale-services { position: relative; width: 100%; transform: scale(0.75); transform-origin: top center; will-change: transform; }
-  .laptop-scale-pricing { position: relative; width: 100%; transform: scale(0.75); transform-origin: top center; will-change: transform; }
-}
+    .laptop-scale-section {
+      position: relative;
+      width: 100%;
+      transform: scale(0.86);
+      transform-origin: top center;
+      will-change: transform;
+    }
 
-@media (min-width: 1201px) and (max-width: 1366px) {
-  .section[id] {
-    padding-top: 110px !important;
-    padding-bottom: 20px !important;
-  }
-  .laptop-scale-navbar { position: static; width: 100%; transform: none; transform-origin: initial; will-change: auto; }
-  .laptop-scale-section { position: relative; width: 100%; transform: scale(0.75); transform-origin: top center; will-change: transform; }
-  .laptop-scale-hero-left { position: relative; width: 100%; transform: scale(0.70); transform-origin: left center; will-change: transform; }
-  .laptop-scale-hero-right { position: relative; width: 100%; transform: scale(0.70); transform-origin: right center; will-change: transform; }
-  .laptop-scale-services { position: relative; width: 100%; transform: scale(0.75); transform-origin: top center; will-change: transform; }
-  .laptop-scale-pricing { position: relative; width: 100%; transform: scale(0.75); transform-origin: top center; will-change: transform; }
-}
+    .laptop-scale-hero {
+      position: relative;
+      width: 100%;
+      transform: scale(0.86);
+      transform-origin: top center;
+      will-change: transform;
+    }
 
-@media (min-width: 1024px) and (max-width: 1439px) {
-  .panel-shell[data-panel-id="hero"] #hero {
-    padding-top: 108px !important;
-    padding-bottom: 48px !important;
+    .laptop-scale-services {
+      position: relative;
+      width: 100%;
+      transform: scale(0.84);
+      transform-origin: top center;
+      will-change: transform;
+    }
+
+    .laptop-scale-pricing {
+      position: relative;
+      width: 100%;
+      transform: scale(0.84);
+      transform-origin: top center;
+      will-change: transform;
+    }
   }
 
-  .panel-shell[data-panel-id="hero"] .laptop-scale-hero-left {
-    position: relative;
-    width: 100%;
-    transform: scale(0.75);
-    transform-origin: left center;
-    will-change: transform;
+  @media (min-width: 1367px) and (max-width: 1560px) {
+    .laptop-scale-navbar {
+      position: static;
+      width: 100%;
+      transform: none;
+      transform-origin: initial;
+      will-change: auto;
+    }
+
+    .laptop-scale-section {
+      position: relative;
+      width: 100%;
+      transform: scale(0.91);
+      transform-origin: top center;
+      will-change: transform;
+    }
+
+    .laptop-scale-hero {
+      position: relative;
+      width: 100%;
+      transform: scale(0.91);
+      transform-origin: top center;
+      will-change: transform;
+    }
+
+    .laptop-scale-services {
+      position: relative;
+      width: 100%;
+      transform: scale(0.89);
+      transform-origin: top center;
+      will-change: transform;
+    }
+
+    .laptop-scale-pricing {
+      position: relative;
+      width: 100%;
+      transform: scale(0.9);
+      transform-origin: top center;
+      will-change: transform;
+    }
   }
 
-  .panel-shell[data-panel-id="hero"] .laptop-scale-hero-right {
-    position: relative;
-    width: 100%;
-    transform: scale(0.75);
-    transform-origin: right center;
-    will-change: transform;
-  }
-}
+  @media (min-width: 1561px) and (max-width: 1920px) and (max-height: 1100px) {
+    .laptop-scale-navbar {
+      position: static;
+      width: 100%;
+      transform: none;
+      transform-origin: initial;
+      will-change: auto;
+    }
 
-@media (min-width: 1367px) and (max-width: 1560px) {
-  .section[id] {
-    padding-top: 110px !important;
-    padding-bottom: 20px !important;
-  }
-  .laptop-scale-navbar { position: static; width: 100%; transform: none; transform-origin: initial; will-change: auto; }
-  .laptop-scale-section { position: relative; width: 100%; transform: scale(0.78); transform-origin: top center; will-change: transform; }
-  .laptop-scale-hero-left { position: relative; width: 100%; transform: scale(0.72); transform-origin: left center; will-change: transform; }
-  .laptop-scale-hero-right { position: relative; width: 100%; transform: scale(0.72); transform-origin: right center; will-change: transform; }
-  .laptop-scale-services { position: relative; width: 100%; transform: scale(0.78); transform-origin: top center; will-change: transform; }
-  .laptop-scale-pricing { position: relative; width: 100%; transform: scale(0.78); transform-origin: top center; will-change: transform; }
-}
+    .laptop-scale-section {
+      position: relative;
+      width: 100%;
+      transform: scale(0.89);
+      transform-origin: top center;
+      will-change: transform;
+    }
 
-@media (min-width: 1561px) and (max-width: 1920px) and (max-height: 1100px) {
-  .section[id] {
-    padding-top: 110px !important;
-    padding-bottom: 20px !important;
-  }
-  .laptop-scale-navbar { position: static; width: 100%; transform: none; transform-origin: initial; will-change: auto; }
-  .laptop-scale-section { position: relative; width: 100%; transform: scale(0.82); transform-origin: top center; will-change: transform; }
-  .laptop-scale-hero-left { position: relative; width: 100%; transform: scale(0.82); transform-origin: left center; will-change: transform; }
-  .laptop-scale-hero-right { position: relative; width: 100%; transform: scale(0.82); transform-origin: right center; will-change: transform; }
-  .laptop-scale-services { position: relative; width: 100%; transform: scale(0.82); transform-origin: top center; will-change: transform; }
-  .laptop-scale-pricing { position: relative; width: 100%; transform: scale(0.82); transform-origin: top center; will-change: transform; }
-}
+    .laptop-scale-hero {
+      position: relative;
+      width: 100%;
+      transform: scale(0.89);
+      transform-origin: top center;
+      will-change: transform;
+    }
 
-@media (min-width: 1561px) and (max-width: 1920px) and (max-height: 1100px) {
-  .panel-shell[data-panel-id="hero"] #hero {
-    padding-top: 96px !important;
-    padding-bottom: 34px !important;
-  }
+    .laptop-scale-services {
+      position: relative;
+      width: 100%;
+      transform: scale(0.87);
+      transform-origin: top center;
+      will-change: transform;
+    }
 
-  .panel-shell[data-panel-id="hero"] .laptop-scale-hero-left {
-    transform: scale(0.74);
-    transform-origin: left top;
+    .laptop-scale-pricing {
+      position: relative;
+      width: 100%;
+      transform: scale(0.88);
+      transform-origin: top center;
+      will-change: transform;
+    }
   }
-
-  .panel-shell[data-panel-id="hero"] .laptop-scale-hero-right {
-    transform: scale(0.72);
-    transform-origin: right top;
-  }
-
-  .panel-shell[data-panel-id="packages"] > section,
-  .panel-shell[data-panel-id="our-work"] > section,
-  .panel-shell[data-panel-id="contact"] > section,
-  .panel-shell[data-panel-id="packages"] > footer,
-  .panel-shell[data-panel-id="our-work"] > footer,
-  .panel-shell[data-panel-id="contact"] > footer {
-    min-height: 100svh;
-    padding-top: 100px !important;
-    padding-bottom: 24px !important;
-    display: flex;
-    align-items: center;
-  }
-
-  .panel-shell[data-panel-id="packages"] .laptop-scale-pricing {
-    transform: scale(0.82);
-    transform-origin: top center;
-  }
-
-  .panel-shell[data-panel-id="our-work"] .laptop-scale-section {
-    transform: scale(0.82);
-    transform-origin: top center;
-  }
-
-  .panel-shell[data-panel-id="contact"] .laptop-scale-section {
-    transform: scale(0.82);
-    transform-origin: top center;
-  }
-}
-
 
   @media (min-width: 2200px) {
     .container {
@@ -212,11 +197,123 @@
     }
   }
 
-  @media (min-width: 1921px) and (min-height: 1081px) {
-    .panel-shell[data-panel-id="process"] > section,
-    .panel-shell[data-panel-id="testimonials"] > section,
-    .panel-shell[data-panel-id="cta"] > section,
+  @media (min-width: 1024px) and (max-width: 1280px) {
+    .panel-shell[data-panel-id="hero"] #hero {
+      padding-top: 80px !important;
+      padding-bottom: 16px !important;
+    }
+
+    .panel-shell[data-panel-id="packages"] > section,
+    .panel-shell[data-panel-id="our-work"] > section,
+    .panel-shell[data-panel-id="contact"] > section,
     .panel-shell[data-panel-id="footer"] > footer {
+      padding-top: 80px !important;
+      padding-bottom: 16px !important;
+      min-height: 100svh;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .panel-shell[data-panel-id="packages"] .laptop-scale-pricing {
+      position: relative;
+      width: 100%;
+      transform: scale(0.72);
+      transform-origin: top center;
+      will-change: transform;
+      min-height: calc(100svh - 96px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .panel-shell[data-panel-id="our-work"] .laptop-scale-section {
+      position: relative;
+      width: 100%;
+      transform: scale(0.72);
+      transform-origin: top center;
+      will-change: transform;
+      min-height: calc(100svh - 96px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .panel-shell[data-panel-id="contact"] .laptop-scale-section {
+      position: relative;
+      width: 100%;
+      transform: scale(0.72);
+      transform-origin: top center;
+      will-change: transform;
+      min-height: calc(100svh - 96px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .panel-shell[data-panel-id="footer"] .laptop-scale-section {
+      position: relative;
+      width: 100%;
+      transform: scale(0.72);
+      transform-origin: top center;
+      will-change: transform;
+    }
+
+    .panel-shell[data-panel-id="process"] .laptop-scale-section,
+    .panel-shell[data-panel-id="testimonials"] .laptop-scale-section,
+    .panel-shell[data-panel-id="cta"] .laptop-scale-section {
+      transform: scale(0.72);
+      transform-origin: top center;
+    }
+
+    /* Services section - stick below header */
+    .panel-shell[data-panel-id="services"] > section {
+      padding-top: 80px !important;
+    }
+
+    .panel-shell[data-panel-id="services"] .laptop-scale-services {
+      transform: scale(0.68);
+      transform-origin: top center;
+    }
+
+    /* OurWork scaled down more */
+    .panel-shell[data-panel-id="our-work"] .laptop-scale-section {
+      transform: scale(0.58);
+    }
+
+    .panel-shell[data-panel-id="our-work"] > section {
+      padding-top: 100px !important;
+      padding-bottom: 12px !important;
+    }
+
+    /* ServiceModal scaling */
+    .fixed.z-\[10000\] .relative.z-\[10001\] {
+      transform: scale(0.82) !important;
+      transform-origin: top center;
+    }
+
+    .work-modal-frame {
+      width: min(54vw, 620px);
+    }
+
+    .work-modal-image {
+      max-height: min(42vh, 360px);
+    }
+
+    .fixed.z-\[120\] {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+  }
+
+  @media (min-width: 1921px) and (min-height: 1081px) {
+
+    .panel-shell[data-panel-id="process"]>section,
+    .panel-shell[data-panel-id="testimonials"]>section,
+    .panel-shell[data-panel-id="cta"]>section,
+    .panel-shell[data-panel-id="footer"]>footer {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -224,10 +321,10 @@
       padding-bottom: 2rem;
     }
 
-    .panel-shell[data-panel-id="process"] > section > .container,
-    .panel-shell[data-panel-id="testimonials"] > section > .container,
-    .panel-shell[data-panel-id="cta"] > section > .container,
-    .panel-shell[data-panel-id="footer"] > footer > .container {
+    .panel-shell[data-panel-id="process"]>section>.container,
+    .panel-shell[data-panel-id="testimonials"]>section>.container,
+    .panel-shell[data-panel-id="cta"]>section>.container,
+    .panel-shell[data-panel-id="footer"]>footer>.container {
       width: 100%;
     }
   }
@@ -304,13 +401,13 @@ body {
   overflow: hidden;
 }
 
-.panel-shell > section,
-.panel-shell > footer {
+.panel-shell>section,
+.panel-shell>footer {
   min-height: 100svh;
 }
 
 .panel-shell[data-panel-id="tech"],
-.panel-shell[data-panel-id="tech"] > section {
+.panel-shell[data-panel-id="tech"]>section {
   min-height: auto;
 }
 
@@ -332,21 +429,53 @@ body {
 }
 
 @keyframes float-shape {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  25% { transform: translate(15px, -20px) rotate(90deg); }
-  50% { transform: translate(-10px, -35px) rotate(180deg); }
-  75% { transform: translate(20px, -15px) rotate(270deg); }
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  25% {
+    transform: translate(15px, -20px) rotate(90deg);
+  }
+
+  50% {
+    transform: translate(-10px, -35px) rotate(180deg);
+  }
+
+  75% {
+    transform: translate(20px, -15px) rotate(270deg);
+  }
 }
 
 @keyframes ai-drift {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-  33% { transform: translate3d(18px, -16px, 0) scale(1.04); }
-  66% { transform: translate3d(-14px, -28px, 0) scale(0.96); }
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate3d(18px, -16px, 0) scale(1.04);
+  }
+
+  66% {
+    transform: translate3d(-14px, -28px, 0) scale(0.96);
+  }
 }
 
 @keyframes signal-pulse {
-  0%, 100% { opacity: 0.25; transform: scale(0.92); }
-  50% { opacity: 0.7; transform: scale(1.08); }
+
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.92);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: scale(1.08);
+  }
 }
 
 .hero-shape {
@@ -355,40 +484,64 @@ body {
   animation: float-shape 12s ease-in-out infinite;
   pointer-events: none;
 }
+
 .hero-shape.shape-triangle {
-  width: 0; height: 0;
+  width: 0;
+  height: 0;
   border-left: 30px solid transparent;
   border-right: 30px solid transparent;
   border-bottom: 52px solid theme('colors.primary');
   animation-duration: 14s;
 }
+
 .hero-shape.shape-circle {
-  width: 20px; height: 20px; border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
   background: theme('colors.teal');
   animation-duration: 10s;
 }
+
 .hero-shape.shape-square {
-  width: 24px; height: 24px;
+  width: 24px;
+  height: 24px;
   border: 2px solid theme('colors.secondary');
   animation-duration: 16s;
 }
+
 .hero-shape.shape-ring {
-  width: 40px; height: 40px; border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   border: 2px solid rgba(41, 211, 255, 0.9);
   animation-duration: 11s;
 }
+
 .hero-shape.shape-cross {
-  width: 22px; height: 22px;
+  width: 22px;
+  height: 22px;
   animation-duration: 13s;
 }
-.hero-shape.shape-cross::before, .hero-shape.shape-cross::after {
-  content: ''; position: absolute; background: #6d7cff;
-}
-.hero-shape.shape-cross::before {
-  width: 100%; height: 3px; top: 50%; transform: translateY(-50%);
-}
+
+.hero-shape.shape-cross::before,
 .hero-shape.shape-cross::after {
-  width: 3px; height: 100%; left: 50%; transform: translateX(-50%);
+  content: '';
+  position: absolute;
+  background: #6d7cff;
+}
+
+.hero-shape.shape-cross::before {
+  width: 100%;
+  height: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hero-shape.shape-cross::after {
+  width: 3px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .hero-orb {

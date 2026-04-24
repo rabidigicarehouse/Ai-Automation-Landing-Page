@@ -16,7 +16,7 @@ const packageServices = [
 
 const PackageCTA = () => {
   return (
-    <section className="section section-theme-cyan flex min-h-screen items-center overflow-hidden pb-6 pt-[80px] sm:pb-16 sm:pt-[120px] lg:pb-20 lg:pt-[160px] xl:pb-24 xl:pt-[180px] 2xl:pb-24 2xl:pt-[190px]" id="packages">
+    <section className="section section-theme-cyan flex min-h-screen items-center overflow-hidden pb-8 pt-[115px] sm:pb-16 sm:pt-[140px] lg:pb-20 lg:pt-[160px] xl:pb-24 xl:pt-[180px] 2xl:pb-24 2xl:pt-[190px]" id="packages">
       <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-[120px]" />
 
       <div className="container laptop-scale-pricing relative z-10 mx-auto w-full px-6">
@@ -39,9 +39,9 @@ const PackageCTA = () => {
                 <Sparkles className="h-4 w-4" />
                 Custom System Scope
               </div>
-              <h3 className="font-heading text-gradient mb-3 max-w-[17ch] text-[1.85rem] font-black uppercase leading-[0.95] tracking-tight sm:text-[2.35rem] md:text-[3.15rem] lg:max-w-[14ch] lg:text-[3rem] xl:max-w-[15ch] xl:text-[3.45rem] 2xl:text-[4rem]">
-                AI automation service packages customized to fit your workflow.
-              </h3>
+              <h4 className="font-heading text-gradient mb-3 max-w-[17ch] text-[1.85rem] font-black uppercase leading-[0.95] tracking-tight sm:text-[2.35rem] md:text-[3.15rem] lg:max-w-[14ch] lg:text-[3rem] xl:max-w-[15ch] xl:text-[3.45rem] 2xl:text-[4rem]">
+                Packages fit for your AI/Automation Services .
+              </h4>
               <p className="max-w-2xl text-[0.92rem] sm:text-base font-light leading-relaxed tracking-tight text-slate-600 dark:text-gray-400 md:text-lg lg:text-[0.95rem] xl:text-[1.02rem] 2xl:text-[1.08rem]">
                 AI agents, workflow orchestration, and rollout support are mapped to your bottlenecks, team structure, and stack.
               </p>

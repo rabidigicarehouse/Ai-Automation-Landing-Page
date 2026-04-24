@@ -122,7 +122,7 @@ export default function ServiceForm({ initialService, isMini = false, forceDark 
 
   if (status === 'success') {
     return (
-      <div className={`${isMini ? 'min-h-[320px] rounded-[1.75rem] p-6' : 'min-h-[400px] rounded-[2rem] p-8'} flex flex-col items-center justify-center border border-emerald-500/20 bg-emerald-500/10 text-center`}>
+      <div className={`${isMini ? 'min-h-[320px] rounded-[1.75rem] p-6' : 'min-h-[400px] rounded-[2rem] p-8'} flex flex-col items-center justify-center border border-emerald-500/30 bg-white dark:bg-[#0d1628] text-center shadow-[0_50px_100px_rgba(0,0,0,0.45)]`}>
         <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/20">
           <CheckCircle2 className="text-white" size={32} />
         </div>

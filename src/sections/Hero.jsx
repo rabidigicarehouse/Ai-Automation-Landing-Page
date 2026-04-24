@@ -151,9 +151,9 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        <div className="relative w-full lg:col-span-6 lg:max-w-[39rem] lg:justify-self-end xl:max-w-[41rem] xl:justify-self-end 2xl:col-span-5 2xl:max-w-[32rem] 2xl:justify-self-end">
+        <div className="relative w-full mx-auto lg:mx-0 lg:col-span-6 lg:max-w-[39rem] lg:justify-self-end xl:max-w-[41rem] xl:justify-self-end 2xl:col-span-5 2xl:max-w-[32rem] 2xl:justify-self-end">
           <div className="absolute -inset-10 -z-10 rounded-full bg-primary/20 blur-[100px] opacity-20" />
-          <ServiceForm forceDark />
+          <ServiceForm />
         </div>
       </div>
     </section>

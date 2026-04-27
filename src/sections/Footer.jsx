@@ -59,8 +59,8 @@ const Footer = () => {
               <ul className="flex flex-col gap-6 text-sm font-light">
                 <li><a href="#services" onClick={(e) => handleScrollTo(e, '#services')} className="inline-flex max-w-full font-bold uppercase tracking-tighter text-slate-800 transition-all duration-300 hover:text-primary dark:text-slate-300 hover:-translate-y-0.5 hover:drop-shadow-[0_0_12px_rgba(41,211,255,0.3)]">Automation Systems</a></li>
                 <li><a href="#process" onClick={(e) => handleScrollTo(e, '#process')} className="inline-flex max-w-full font-bold uppercase tracking-tighter text-slate-800 transition-all duration-300 hover:text-primary dark:text-slate-300 hover:-translate-y-0.5 hover:drop-shadow-[0_0_12px_rgba(41,211,255,0.3)]">Delivery Framework</a></li>
-                <li><a href="#work" onClick={(e) => handleScrollTo(e, '#work')} className="inline-flex max-w-full font-bold uppercase tracking-tighter text-slate-800 transition-all duration-300 hover:text-primary dark:text-slate-300 hover:-translate-y-0.5 hover:drop-shadow-[0_0_12px_rgba(41,211,255,0.3)]">Automation Use Cases</a></li>
-                <li><a href="#pricing" onClick={(e) => handleScrollTo(e, '#pricing')} className="inline-flex max-w-full font-bold uppercase tracking-tighter text-slate-800 transition-all duration-300 hover:text-primary dark:text-slate-300 hover:-translate-y-0.5 hover:drop-shadow-[0_0_12px_rgba(41,211,255,0.3)]">Programs</a></li>
+                <li><a href="#our-work" onClick={(e) => handleScrollTo(e, '#our-work')} className="inline-flex max-w-full font-bold uppercase tracking-tighter text-slate-800 transition-all duration-300 hover:text-primary dark:text-slate-300 hover:-translate-y-0.5 hover:drop-shadow-[0_0_12px_rgba(41,211,255,0.3)]">Our Work</a></li>
+                <li><a href="#contact" onClick={(e) => handleScrollTo(e, '#contact')} className="inline-flex max-w-full font-bold uppercase tracking-tighter text-slate-800 transition-all duration-300 hover:text-primary dark:text-slate-300 hover:-translate-y-0.5 hover:drop-shadow-[0_0_12px_rgba(41,211,255,0.3)]">Contact</a></li>
               </ul>
             </div>
 
@@ -87,8 +87,8 @@ const Footer = () => {
         <div className="flex flex-col items-center justify-between text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-500 md:flex-row">
           <p>&copy; {new Date().getFullYear()} NeuroFlow AI Automation.</p>
           <div className="mt-6 flex gap-10 md:mt-0">
-            <a href="#" className="transition-colors hover:text-primary">Data Security</a>
-            <a href="#" className="transition-colors hover:text-primary">Automation Terms</a>
+            <span className="rounded-full border border-black/10 px-4 py-2 text-[10px] tracking-[0.18em] dark:border-white/10">Data Security</span>
+            <span className="rounded-full border border-black/10 px-4 py-2 text-[10px] tracking-[0.18em] dark:border-white/10">Automation Terms</span>
           </div>
         </div>
       </div>

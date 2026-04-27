@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import Button from '../components/Button';
@@ -13,10 +13,37 @@ const stats = [
 
 const Hero = () => {
   const heroVideoRef = useRef(null);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+
+  useEffect(() => {
+    let idleId = null;
+    let timeoutId = null;
+
+    const loadVideo = () => setShouldLoadVideo(true);
+    const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    const saveData = navigator.connection?.saveData;
+    const delay = prefersReducedMotion || saveData ? 1400 : 700;
+
+    if ('requestIdleCallback' in window) {
+      idleId = window.requestIdleCallback(loadVideo, { timeout: delay });
+    } else {
+      timeoutId = window.setTimeout(loadVideo, delay);
+    }
+
+    return () => {
+      if (idleId !== null && 'cancelIdleCallback' in window) {
+        window.cancelIdleCallback(idleId);
+      }
+
+      if (timeoutId !== null) {
+        window.clearTimeout(timeoutId);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const video = heroVideoRef.current;
-    if (!video) return;
+    if (!video || !shouldLoadVideo) return;
 
     const syncPlayback = () => {
       video.defaultPlaybackRate = 2;
@@ -45,7 +72,7 @@ const Hero = () => {
       video.removeEventListener('stalled', syncPlayback);
       document.removeEventListener('visibilitychange', resumePlayback);
     };
-  }, []);
+  }, [shouldLoadVideo]);
 
   return (
     <section id="hero" className="section relative flex min-h-screen items-center overflow-hidden pb-[90px] pt-[216px] sm:pb-[120px] sm:pt-[145px] md:pb-[150px] lg:pt-[98px] xl:pt-[106px] 2xl:pt-[180px] lg:pb-[52px] xl:pb-[62px] 2xl:pb-[170px]">
@@ -53,12 +80,12 @@ const Hero = () => {
         <video
           ref={heroVideoRef}
           className="h-full w-full object-cover"
-          src="/assets/Animated_video/hero.mp4"
+          src={shouldLoadVideo ? '/assets/Animated_video/hero.mp4' : undefined}
           autoPlay
           loop
           muted
           playsInline
-          preload="metadata"
+          preload={shouldLoadVideo ? 'metadata' : 'none'}
           disablePictureInPicture
           disableRemotePlayback
         />
@@ -121,7 +148,7 @@ const Hero = () => {
               transition={{ duration: 0.9, delay: 0.24 }}
               className="flex w-full flex-col gap-4 sm:w-auto sm:flex-row"
             >
-              <a href="#work" onClick={(e) => handleScrollTo(e, '#work')} className="block w-full sm:w-auto">
+              <a href="#our-work" onClick={(e) => handleScrollTo(e, '#our-work')} className="block w-full sm:w-auto">
                 <Button variant="primary" className="group w-full rounded-full px-10 py-5 text-sm font-black uppercase tracking-widest shadow-[0_0_24px_rgba(41,211,255,0.22)] hover:shadow-[0_0_38px_rgba(109,124,255,0.32)] sm:w-auto">
                   Explore Systems <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>

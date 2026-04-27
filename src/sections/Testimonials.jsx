@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star, Fingerprint, Quote } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading';
+import { useSectionMedia } from '../hooks/useSectionMedia';
 
 const testimonials = [
   {
@@ -32,12 +33,18 @@ const testimonials = [
 
 const Testimonials = () => {
   const [current, setCurrent] = useState(0);
+  const [sectionRef, shouldLoadMedia] = useSectionMedia();
 
   const next = () => setCurrent(curr => (curr === testimonials.length - 1 ? 0 : curr + 1));
   const prev = () => setCurrent(curr => (curr === 0 ? testimonials.length - 1 : curr - 1));
 
   return (
-    <section className="section section-theme-indigo flex min-h-screen items-center overflow-hidden py-16 xl:py-20 2xl:py-24" id="testimonials">
+    <section
+      ref={sectionRef}
+      className="section section-theme-indigo flex min-h-screen items-center overflow-hidden py-16 xl:py-20 2xl:py-24"
+      id="testimonials"
+      style={{ contentVisibility: 'auto', containIntrinsicSize: '980px' }}
+    >
       <div className="container laptop-scale-section mx-auto flex w-full flex-col justify-center px-6">
         
         <div className="flex flex-col lg:flex-row items-center gap-14 xl:gap-16 2xl:gap-20">
@@ -49,7 +56,11 @@ const Testimonials = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 className="inline-flex items-center mb-8"
               >
-                <img src="/assets/google.png" alt="Google" className="h-10 w-auto object-contain" />
+                {shouldLoadMedia ? (
+                  <img src="/assets/google.png" alt="Google" className="h-10 w-auto object-contain" loading="lazy" decoding="async" />
+                ) : (
+                  <div className="h-10 w-28 rounded-full bg-black/5 dark:bg-white/10" />
+                )}
               </motion.div>
               <h2 className="text-5xl xl:text-[3.6rem] 2xl:text-6xl font-black font-heading tracking-tighter uppercase mb-8 xl:mb-9 2xl:mb-10 dark:text-white text-slate-950 leading-[0.8]">
                  Proven <br />
@@ -73,43 +84,60 @@ const Testimonials = () => {
            <div className="w-full lg:w-2/3 relative">
               <div className="absolute -inset-10 bg-primary/10 blur-[100px] -z-10 rounded-full animate-pulse" />
               
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={current}
-                  initial={{ opacity: 0, x: 50, scale: 0.9 }}
-                  animate={{ opacity: 1, x: 0, scale: 1 }}
-                  exit={{ opacity: 0, x: -50, scale: 0.9 }}
-                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className="w-full"
-                >
-                   <div className="relative p-10 md:p-14 xl:p-16 2xl:p-20 rounded-[3rem] xl:rounded-[3.4rem] 2xl:rounded-[4rem] dark:bg-dark-card/60 bg-white border border-black/5 dark:border-white/5 shadow-2xl overflow-hidden group">
-                      <Quote className="absolute top-10 right-10 text-primary opacity-20 group-hover:opacity-40 transition-opacity duration-700 w-24 h-24" />
-                      
-                      <div className="flex items-center gap-4 mb-10">
-                        <div className="flex gap-1">
-                           {[1,2,3,4,5].map(i => <Star key={i} className="w-6 h-6 fill-[#FBBC04] text-[#FBBC04]" />)}
+              {shouldLoadMedia ? (
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={current}
+                    initial={{ opacity: 0, x: 50, scale: 0.9 }}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    exit={{ opacity: 0, x: -50, scale: 0.9 }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    className="w-full"
+                  >
+                     <div className="relative p-10 md:p-14 xl:p-16 2xl:p-20 rounded-[3rem] xl:rounded-[3.4rem] 2xl:rounded-[4rem] dark:bg-dark-card/60 bg-white border border-black/5 dark:border-white/5 shadow-2xl overflow-hidden group">
+                        <Quote className="absolute top-10 right-10 text-primary opacity-20 group-hover:opacity-40 transition-opacity duration-700 w-24 h-24" />
+                        
+                        <div className="flex items-center gap-4 mb-10">
+                          <div className="flex gap-1">
+                             {[1,2,3,4,5].map(i => <Star key={i} className="w-6 h-6 fill-[#FBBC04] text-[#FBBC04]" />)}
+                          </div>
+                          <img src="/assets/verified.png" alt="Verified" className="w-6 h-6 object-contain" loading="lazy" decoding="async" />
                         </div>
-                        <img src="/assets/verified.png" alt="Verified" className="w-6 h-6 object-contain" />
-                      </div>
 
-                      <p className="text-2xl md:text-4xl xl:text-[2rem] 2xl:text-4xl dark:text-white text-slate-950 font-black italic leading-[1.1] mb-10 xl:mb-11 2xl:mb-12 tracking-tighter uppercase">
-                         "{testimonials[current].text}"
-                      </p>
+                        <p className="text-2xl md:text-4xl xl:text-[2rem] 2xl:text-4xl dark:text-white text-slate-950 font-black italic leading-[1.1] mb-10 xl:mb-11 2xl:mb-12 tracking-tighter uppercase">
+                           "{testimonials[current].text}"
+                        </p>
 
-                      <div className="flex items-center gap-6 mt-auto">
-                        <img 
-                           src={testimonials[current].image} 
-                           alt={testimonials[current].name} 
-                           className="w-20 h-20 rounded-3xl object-cover shadow-2xl border-2 border-primary/20"
-                        />
-                        <div>
-                           <h4 className="text-2xl font-black dark:text-white text-slate-950 font-heading tracking-tighter uppercase leading-none mb-2">{testimonials[current].name}</h4>
-                           <p className="text-xs font-black tracking-widest uppercase dark:text-gray-500 text-slate-400 opacity-60">{testimonials[current].role}</p>
+                        <div className="flex items-center gap-6 mt-auto">
+                          <img
+                             src={testimonials[current].image}
+                             alt={testimonials[current].name}
+                             className="w-20 h-20 rounded-3xl object-cover shadow-2xl border-2 border-primary/20"
+                             loading="lazy"
+                             decoding="async"
+                          />
+                          <div>
+                             <h4 className="text-2xl font-black dark:text-white text-slate-950 font-heading tracking-tighter uppercase leading-none mb-2">{testimonials[current].name}</h4>
+                             <p className="text-xs font-black tracking-widest uppercase dark:text-gray-500 text-slate-400 opacity-60">{testimonials[current].role}</p>
+                          </div>
                         </div>
-                      </div>
-                   </div>
-                </motion.div>
-              </AnimatePresence>
+                     </div>
+                  </motion.div>
+                </AnimatePresence>
+              ) : (
+                <div className="w-full rounded-[3rem] border border-black/5 bg-white/70 p-10 shadow-2xl dark:border-white/5 dark:bg-white/[0.03] md:p-14 xl:p-16 2xl:p-20">
+                  <div className="mb-10 h-6 w-32 rounded-full bg-black/5 dark:bg-white/10" />
+                  <div className="mb-6 h-10 w-full rounded-3xl bg-black/5 dark:bg-white/10" />
+                  <div className="mb-10 h-10 w-5/6 rounded-3xl bg-black/5 dark:bg-white/10" />
+                  <div className="flex items-center gap-6">
+                    <div className="h-20 w-20 rounded-3xl bg-black/5 dark:bg-white/10" />
+                    <div className="flex-1">
+                      <div className="mb-3 h-6 w-40 rounded-full bg-black/5 dark:bg-white/10" />
+                      <div className="h-4 w-32 rounded-full bg-black/5 dark:bg-white/10" />
+                    </div>
+                  </div>
+                </div>
+              )}
            </div>
 
         </div>

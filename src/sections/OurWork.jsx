@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import SectionHeading from '../components/SectionHeading';
+import { useSectionMedia } from '../hooks/useSectionMedia';
 
 const workFrames = [
   { image: '/assets/aiautomation workflows/image (1).jpg', alt: 'Automation workflow 1' },
@@ -19,6 +20,7 @@ const reelFrames = [...workFrames, ...workFrames];
 
 const OurWork = () => {
   const [activeFrame, setActiveFrame] = useState(null);
+  const [sectionRef, shouldLoadMedia] = useSectionMedia();
 
   useEffect(() => {
     if (!activeFrame) return undefined;
@@ -35,7 +37,12 @@ const OurWork = () => {
   }, [activeFrame]);
 
   return (
-    <section className="section section-theme-cyan box-border flex min-h-screen items-center overflow-hidden pb-16 pt-[140px] lg:pt-[160px] xl:pb-20 xl:pt-[180px] 2xl:pb-24 2xl:pt-[190px]" id="our-work">
+    <section
+      ref={sectionRef}
+      className="section section-theme-cyan box-border flex min-h-screen items-center overflow-hidden pb-16 pt-[140px] lg:pt-[160px] xl:pb-20 xl:pt-[180px] 2xl:pb-24 2xl:pt-[190px]"
+      id="our-work"
+      style={{ contentVisibility: 'auto', containIntrinsicSize: '1200px' }}
+    >
       <div className="container laptop-scale-section mx-auto flex w-full flex-col justify-center px-4 sm:px-6 xl:px-8 2xl:px-10">
         <div className="mb-10 max-w-4xl xl:mb-12 2xl:mb-14">
           <SectionHeading title="Our Work Systems" subtitle="Automation Snapshots" />
@@ -68,7 +75,11 @@ const OurWork = () => {
                 onClick={() => setActiveFrame(frame)}
                 className="h-[20rem] w-[18rem] shrink-0 overflow-hidden rounded-[2.2rem] border border-black/5 bg-white shadow-[0_18px_50px_rgba(15,23,42,0.1)] transition-transform duration-300 hover:scale-[1.02] dark:border-white/8 dark:bg-[#081723] sm:h-[24rem] sm:w-[21rem] lg:h-[28rem] lg:w-[24rem] xl:h-[31rem] xl:w-[27rem]"
               >
-                <img src={frame.image} alt={frame.alt} className="h-full w-full object-cover" />
+                {shouldLoadMedia ? (
+                  <img src={frame.image} alt={frame.alt} className="h-full w-full object-cover" loading="lazy" decoding="async" />
+                ) : (
+                  <div className="h-full w-full bg-[linear-gradient(135deg,rgba(255,255,255,0.92),rgba(226,232,240,0.74),rgba(241,245,249,0.94))] dark:bg-[linear-gradient(135deg,rgba(8,23,35,0.98),rgba(15,23,42,0.78),rgba(8,23,35,0.98))]" />
+                )}
               </button>
             ))}
           </motion.div>
@@ -97,6 +108,8 @@ const OurWork = () => {
                 src={activeFrame.image}
                 alt={activeFrame.alt}
                 className="work-modal-image w-full object-contain bg-black"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>

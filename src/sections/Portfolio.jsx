@@ -5,11 +5,6 @@ import SectionHeading from '../components/SectionHeading';
 import Button from '../components/Button';
 import { companyPhoneHref } from '../data/contact';
 import { handlePrimaryContactAction } from '../utils/contactActions';
-import video1 from '../assets/Animated_video/1.mp4';
-import video2 from '../assets/Animated_video/2.mp4';
-import video3 from '../assets/Animated_video/3.mp4';
-import video4 from '../assets/Animated_video/4.mp4';
-import { assetSrc } from '../utils/assetSrc';
 
 const ensureVideoPlayback = (video) => {
   if (!video) return;
@@ -30,22 +25,22 @@ const projects = [
   {
     title: 'OpsPilot Command',
     category: 'AI Control Layer',
-    video: assetSrc(video1),
+    video: '/assets/Animated_video/1.mp4',
   },
   {
     title: 'VoiceGrid Agent',
     category: 'Conversational AI',
-    video: assetSrc(video2),
+    video: '/assets/Animated_video/2.mp4',
   },
   {
     title: 'FlowForge Engine',
     category: 'Automation Systems',
-    video: assetSrc(video3),
+    video: '/assets/Animated_video/3.mp4',
   },
   {
     title: 'NeuralMesh Ops',
     category: 'Multi-Agent Stack',
-    video: assetSrc(video4),
+    video: '/assets/Animated_video/4.mp4',
   },
 ];
 

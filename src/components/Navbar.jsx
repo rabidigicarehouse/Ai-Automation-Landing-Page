@@ -5,8 +5,6 @@ import { usePathname } from 'next/navigation';
 import Button from './Button';
 import ThemeToggle from './ThemeToggle';
 import { handleScrollTo } from '../utils/scrollTo';
-import logo from '../assets/Digiicare.png';
-import { assetSrc } from '../utils/assetSrc';
 
 const navLinks = [
   { name: 'Services', href: '#services' },
@@ -71,7 +69,7 @@ const Navbar = () => {
           }} 
           className="group relative flex items-center lg:ml-2 xl:ml-3"
         >
-          <img src={assetSrc(logo)} alt="AI Automation" className="h-14 w-auto max-w-[220px] object-contain object-left transition-all duration-700 group-hover:scale-105 sm:h-16 md:h-[4.5rem] lg:h-[2.8rem] lg:max-w-[200px] xl:h-[3.2rem] xl:max-w-[240px] 2xl:h-[3.8rem] 2xl:max-w-[280px]" />
+          <img src="/assets/Digiicare.png" alt="AI Automation" className="h-14 w-auto max-w-[220px] object-contain object-left transition-all duration-700 group-hover:scale-105 sm:h-16 md:h-[4.5rem] lg:h-[2.8rem] lg:max-w-[200px] xl:h-[3.2rem] xl:max-w-[240px] 2xl:h-[3.8rem] 2xl:max-w-[280px]" />
         </a>
 
         <nav className="hidden items-center gap-[1.35rem] lg:ml-auto lg:mr-2 lg:flex xl:mr-3 xl:gap-[1.8rem] 2xl:gap-10">
@@ -126,7 +124,7 @@ const Navbar = () => {
           >
             <div className="mx-auto flex h-full w-full max-w-sm flex-col rounded-[2rem] border border-black/5 bg-white px-6 pb-8 pt-6 shadow-[0_30px_80px_rgba(15,23,42,0.10)] dark:border-white/10 dark:bg-[#07101d]">
               <div className="mb-6 flex items-center justify-between gap-2">
-                <img src={assetSrc(logo)} alt="AI Automation" className="h-12 w-auto object-contain" />
+                <img src="/assets/Digiicare.png" alt="AI Automation" className="h-12 w-auto object-contain" />
                 <button onClick={() => setMobileMenuOpen(false)} className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-black/5 bg-slate-100/90 text-slate-700 shadow-lg transition-all hover:text-primary dark:border-white/10 dark:bg-white/5 dark:text-white">
                   <X size={19} />
                 </button>

@@ -2,29 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import SectionHeading from '../components/SectionHeading';
 
-import workflow1 from '../assets/aiautomation workflows/image (1).jpg';
-import workflow2 from '../assets/aiautomation workflows/image (1).png';
-import workflow3 from '../assets/aiautomation workflows/image (3).png';
-import workflow4 from '../assets/aiautomation workflows/image (4).png';
-import workflow5 from '../assets/aiautomation workflows/image (5).png';
-import workflow6 from '../assets/aiautomation workflows/image (6).png';
-import workflow7 from '../assets/aiautomation workflows/image (7).png';
-import workflow8 from '../assets/aiautomation workflows/image (8).png';
-import workflow9 from '../assets/aiautomation workflows/image (9).png';
-import workflow10 from '../assets/aiautomation workflows/image (10).png';
-import { assetSrc } from '../utils/assetSrc';
-
 const workFrames = [
-  { image: assetSrc(workflow1), alt: 'Automation workflow 1' },
-  { image: assetSrc(workflow2), alt: 'Automation workflow 2' },
-  { image: assetSrc(workflow3), alt: 'Automation workflow 3' },
-  { image: assetSrc(workflow4), alt: 'Automation workflow 4' },
-  { image: assetSrc(workflow5), alt: 'Automation workflow 5' },
-  { image: assetSrc(workflow6), alt: 'Automation workflow 6' },
-  { image: assetSrc(workflow7), alt: 'Automation workflow 7' },
-  { image: assetSrc(workflow8), alt: 'Automation workflow 8' },
-  { image: assetSrc(workflow9), alt: 'Automation workflow 9' },
-  { image: assetSrc(workflow10), alt: 'Automation workflow 10' },
+  { image: '/assets/aiautomation workflows/image (1).jpg', alt: 'Automation workflow 1' },
+  { image: '/assets/aiautomation workflows/image (1).png', alt: 'Automation workflow 2' },
+  { image: '/assets/aiautomation workflows/image (3).png', alt: 'Automation workflow 3' },
+  { image: '/assets/aiautomation workflows/image (4).png', alt: 'Automation workflow 4' },
+  { image: '/assets/aiautomation workflows/image (5).png', alt: 'Automation workflow 5' },
+  { image: '/assets/aiautomation workflows/image (6).png', alt: 'Automation workflow 6' },
+  { image: '/assets/aiautomation workflows/image (7).png', alt: 'Automation workflow 7' },
+  { image: '/assets/aiautomation workflows/image (8).png', alt: 'Automation workflow 8' },
+  { image: '/assets/aiautomation workflows/image (9).png', alt: 'Automation workflow 9' },
+  { image: '/assets/aiautomation workflows/image (10).png', alt: 'Automation workflow 10' },
 ];
 
 const reelFrames = [...workFrames, ...workFrames];

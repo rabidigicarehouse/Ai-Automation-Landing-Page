@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { Mail, Phone, ArrowUpRight, MapPin } from 'lucide-react';
-import logo from '../assets/Digiicare.png';
 import ServiceModal from '../components/ServiceModal';
 import { servicesData } from '../data/services';
 import { socialLinks, companyPhoneDisplay, companyPhoneHref } from '../data/contact';
 import { handleScrollTo } from '../utils/scrollTo';
-import { assetSrc } from '../utils/assetSrc';
 
 const Footer = () => {
   const [selectedService, setSelectedService] = useState(null);
@@ -22,7 +20,7 @@ const Footer = () => {
         <div className="mb-16 flex flex-col items-start justify-between gap-12 border-b border-black/5 pb-16 dark:border-white/5 lg:flex-row xl:mb-[4.5rem] xl:gap-14 xl:pb-[4.5rem] 2xl:mb-20 2xl:gap-16 2xl:pb-20">
           <div className="w-full max-w-md">
             <a href="#" onClick={(e) => handleScrollTo(e, '#')} className="group mb-10 flex items-center">
-              <img src={assetSrc(logo)} alt="AI Automation" className="h-16 w-auto object-contain transition-transform group-hover:scale-105 md:h-20" />
+              <img src="/assets/Digiicare.png" alt="AI Automation" className="h-16 w-auto object-contain transition-transform group-hover:scale-105 md:h-20" />
             </a>
             <p className="mb-10 text-xl font-light leading-relaxed tracking-tight text-slate-600 dark:text-gray-400">
               We engineer intelligent workflows, AI copilots, and autonomous operating systems that turn manual chaos into measurable scale.
